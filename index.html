@@ -1,46 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="h-full">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 巴塞隆納自由行互動行程與行李清單</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 巴塞隆納自由行互動式行程表</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            warmbg: '#FAF8F5',
-            terracotta: {
+            terra: {
               DEFAULT: '#C85A32',
-              hover: '#B24E2A',
-              light: '#FBECE7'
+              hover: '#B14B25',
+              light: '#FBF0EC',
             },
             olive: {
               DEFAULT: '#5B7052',
-              light: '#F0F4EF'
+              hover: '#4A5C43',
+              light: '#EFF3EE',
             },
-            charcoal: '#2C2A29',
-            sand: '#F2EDE4',
-            /* Transport Colors */
-            metroL1: '#E2231A',
-            metroL2: '#9B26B6',
-            metroL3: '#009639',
-            metroL4: '#F7B500',
-            metroL5: '#0072CE',
-            metroL9S: '#F58220',
-            tBus: '#555555',
-            tTrain: '#6B4C9A',
-            tWalk: '#5B7052',
-            tTaxi: '#D4A017'
+            warmbg: '#FAF8F5',
+            charcoal: '#2D2A26',
+            cream: '#F4EFEA'
           },
           fontFamily: {
-            sans: ['Noto Sans TC', 'sans-serif']
+            sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
           }
         }
       }
@@ -49,1011 +37,1341 @@
   <style>
     body {
       background-color: #FAF8F5;
-      color: #2C2A29;
+      color: #2D2A26;
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
     }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
+    .custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: #C85A32 #F4EFEA;
     }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
     }
-    /* Smooth transitions */
-    .tab-btn {
-      transition: all 0.2s ease-in-out;
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #F4EFEA;
+      border-radius: 9999px;
     }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #C85A32;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #B14B25;
+    }
+    /* Metro line colors */
+    .bg-m-l1 { background-color: #E2001A; color: white; }
+    .bg-m-l2 { background-color: #93278F; color: white; }
+    .bg-m-l3 { background-color: #009640; color: white; }
+    .bg-m-l4 { background-color: #FABB00; color: #111; }
+    .bg-m-l5 { background-color: #0072BC; color: white; }
+    .bg-m-l9s { background-color: #F39200; color: white; }
+    .bg-m-fgc { background-color: #5B7052; color: white; }
+    .bg-m-bus { background-color: #D94E3B; color: white; }
+    .bg-m-walk { background-color: #6B7280; color: white; }
+    .bg-m-taxi { background-color: #222222; color: #FABB00; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col font-sans antialiased pb-12">
+<body class="min-h-full flex flex-col antialiased selection:bg-terra selection:text-white">
 
-  <!-- Header Header -->
-  <header class="bg-white border-b border-sand sticky top-0 z-30 shadow-sm">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+  <!-- Sticky Top Header & Navigation -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
       <div class="flex items-center gap-3">
-        <span class="text-3xl">🇪🇸</span>
+        <span class="text-2xl">🇪🇸</span>
         <div>
-          <h1 class="text-xl sm:text-2xl font-bold text-charcoal tracking-tight">2026 巴塞隆納自由行</h1>
-          <p class="text-xs sm:text-sm text-gray-500">12/18 – 12/27 ｜ 聖誕與球賽驚喜之旅</p>
+          <h1 class="font-bold text-lg text-charcoal tracking-tight">2026 巴塞隆納自由行</h1>
+          <p class="text-xs text-stone-500">12/18 – 12/28 ｜ 阿提哈德航空 T2 ⇄ T1</p>
         </div>
       </div>
-      
-      <!-- Main Nav Tabs -->
-      <div class="flex bg-warmbg p-1 rounded-xl border border-sand w-full sm:w-auto">
-        <button id="tab-itinerary-btn" onclick="switchTab('itinerary')" class="tab-btn flex-1 sm:flex-initial px-5 py-2 rounded-lg font-medium text-sm text-white bg-terracotta shadow-xs flex items-center justify-center gap-2">
-          <span>🗓️</span> 每日行程
+
+      <!-- Main Tabs Switcher -->
+      <nav class="flex bg-warmbg p-1 rounded-xl border border-stone-200 text-sm font-medium w-full sm:w-auto justify-stretch">
+        <button id="tab-btn-1" onclick="switchTab(1)" class="flex-1 sm:flex-initial px-4 py-2 rounded-lg transition-all duration-200 shadow-sm bg-white text-terra font-semibold">
+          📅 每日行程
         </button>
-        <button id="tab-packing-btn" onclick="switchTab('packing')" class="tab-btn flex-1 sm:flex-initial px-5 py-2 rounded-lg font-medium text-sm text-gray-600 hover:text-charcoal flex items-center justify-center gap-2">
-          <span>🧳</span> 行李清單
+        <button id="tab-btn-2" onclick="switchTab(2)" class="flex-1 sm:flex-initial px-4 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:text-charcoal">
+          💰 每人預算
         </button>
-      </div>
+        <button id="tab-btn-3" onclick="switchTab(3)" class="flex-1 sm:flex-initial px-4 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:text-charcoal">
+          🧳 行李清單
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- Main Content Wrapper -->
-  <main class="max-w-5xl mx-auto px-4 py-6 w-full flex-grow">
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-6">
 
-    <!-- ==================== TAB 1: 🗓️ 每日行程 ==================== -->
-    <section id="tab-itinerary" class="space-y-6">
-      
-      <!-- Accommodation & Transport Info Card -->
-      <div class="bg-white rounded-2xl p-5 border border-sand shadow-sm transition-all">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div class="space-y-1">
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-olive-light text-olive">住宿地點</span>
-              <span class="text-xs text-gray-500 font-medium">聖家堂核心區</span>
-            </div>
-            <h2 class="text-lg font-bold text-charcoal">Suite Home Sagrada Familia</h2>
-            <p class="text-xs sm:text-sm text-gray-600 flex items-center gap-1">
-              📍 Avinguda de Gaudí, 28, Eixample, 08025 Barcelona, Spain
-            </p>
+    <!-- ========================================== -->
+    <!-- TAB 1: 📅 每日行程與交通                    -->
+    <!-- ========================================== -->
+    <section id="tab-content-1" class="space-y-6">
+
+      <!-- Accommodation & BCN Airport Info Collapsible Card -->
+      <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+        <div onclick="toggleGuideCard()" class="p-4 bg-gradient-to-r from-terra/5 to-olive/5 border-b border-stone-100 flex justify-between items-center cursor-pointer hover:bg-stone-50 transition">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🏨</span>
+            <h2 class="font-bold text-charcoal">住宿 & BCN 機場 ⇄ 住宿 交通指南</h2>
           </div>
-
-          <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-            <button onclick="copyAddress()" class="flex-1 md:flex-none text-xs bg-warmbg hover:bg-sand text-charcoal px-3 py-2 rounded-lg border border-sand font-medium flex items-center justify-center gap-1.5 transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-              一鍵複製地址
-            </button>
-            <a href="https://maps.google.com/?q=Avinguda+de+Gaud%C3%AD+28+Barcelona" target="_blank" class="flex-1 md:flex-none text-xs bg-terracotta hover:bg-terracotta-hover text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1.5 transition">
-              🗺️ Google 地圖
-            </a>
-          </div>
-        </div>
-
-        <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2">
-          <div class="flex items-center gap-2 text-xs text-gray-700">
-            <span class="font-bold">最近地鐵：</span>
-            <span class="inline-flex items-center gap-1 font-semibold px-2 py-0.5 rounded bg-purple-100 text-purple-700">L2 紫線</span>
-            <span class="inline-flex items-center gap-1 font-semibold px-2 py-0.5 rounded bg-blue-100 text-blue-700">L5 藍線</span>
-            <span class="text-gray-500">Sagrada Família 站 (步行 3 分鐘)</span>
-          </div>
-
-          <button onclick="toggleTransportDetails()" class="text-xs text-terracotta font-semibold hover:underline flex items-center gap-1">
-            <span id="transport-toggle-text">查看 機場 ⇄ 住宿 交通攻略</span>
-            <svg id="transport-arrow" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <button id="guide-toggle-btn" class="text-xs text-terra font-semibold bg-white border border-terra/30 px-3 py-1 rounded-full shadow-xs">
+            收合指南 ▲
           </button>
         </div>
 
-        <!-- Collapsible Transport Guide -->
-        <div id="transport-details" class="hidden mt-4 pt-4 border-t border-dashed border-sand space-y-3 text-xs sm:text-sm text-gray-700">
-          <div class="p-3 bg-warmbg rounded-xl border border-sand">
-            <h4 class="font-bold text-terracotta mb-2 flex items-center gap-1 font-medium">🚖 方案一（4人最推薦）：Taxi 計程車</h4>
-            <p class="text-gray-600">車程約 23–30 分鐘，車資約 €35–42。出門直接上下車最輕鬆，4 人平分每人僅約 €9–10。</p>
+        <div id="guide-card-body" class="p-4 sm:p-6 space-y-5 text-sm">
+          <!-- Hotel Card -->
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-stone-50 p-4 rounded-xl border border-stone-200 gap-3">
+            <div>
+              <div class="text-xs font-semibold text-terra uppercase tracking-wider">Barcelona Residence</div>
+              <div class="font-bold text-base text-charcoal">Suite Home Sagrada Familia</div>
+              <div class="text-stone-600 text-xs mt-0.5">Avinguda de Gaudí, 28, 08025 Barcelona, Spain (鄰近地鐵 L2/L5 聖家堂站)</div>
+            </div>
+            <div class="flex items-center gap-2 w-full md:w-auto">
+              <button onclick="copyAddress('Avinguda de Gaudí, 28, 08025 Barcelona, Spain')" class="flex-1 md:flex-none text-xs bg-white border border-stone-300 hover:border-terra hover:text-terra font-medium px-3 py-2 rounded-lg transition shadow-xs flex items-center justify-center gap-1">
+                📋 複製地址
+              </button>
+              <a href="https://www.google.com/maps/search/?api=1&query=Avinguda+de+Gaud%C3%AD,+28,+08025+Barcelona,+Spain" target="_blank" rel="noopener" class="flex-1 md:flex-none text-xs bg-terra text-white hover:bg-terra-hover font-medium px-3 py-2 rounded-lg transition shadow-xs flex items-center justify-center gap-1">
+                📍 地圖導航
+              </a>
+            </div>
           </div>
-          <div class="p-3 bg-warmbg rounded-xl border border-sand">
-            <h4 class="font-bold text-charcoal mb-2">🚇 方案二：地鐵直轉 (L9S → L5)</h4>
-            <p class="text-gray-600">搭乘 <strong>L9S 橘線</strong> (Airport T1/T2) 至 <code>Collblanc</code> 站，轉乘 <strong>L5 藍線</strong> 直達 <code>Sagrada Família</code> 站（全程約 50 分鐘，需買機場地鐵特別票）。</p>
-          </div>
-          <div class="p-3 bg-warmbg rounded-xl border border-sand">
-            <h4 class="font-bold text-charcoal mb-2">🚌 方案三：機場巴士 (Aerobús → L2)</h4>
-            <p class="text-gray-600">搭乘 <strong>Aerobús A1/A2</strong> 到 <code>Plaça de Catalunya</code> 或 <code>Universitat</code>，轉乘 <strong>L2 紫線</strong> 到 <code>Sagrada Família</code> 站（約 50 分鐘）。</p>
-          </div>
-          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-900">
-            <p class="font-semibold flex items-center gap-1">⚠️ 12/27 回程提醒 (10:05 航班)：</p>
-            <p class="mt-1">建議清晨 **07:00** 直接預約 Taxi 出發前往機場辦理退稅與報到手續。</p>
+
+          <!-- Airport Transit Comparison -->
+          <div>
+            <h3 class="font-bold text-charcoal mb-2.5 flex items-center gap-1.5">
+              <span>✈️</span> 巴塞隆納機場 T1 ⇄ 聖家堂住宿 交通方案比較
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <!-- Plan 1 -->
+              <div class="p-3.5 rounded-xl border border-terra/30 bg-terra-light/30 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <strong class="text-terra font-bold">方案 1 (4人最推薦)</strong>
+                    <span class="text-[10px] bg-terra text-white px-2 py-0.5 rounded-full font-bold">最便利</span>
+                  </div>
+                  <div class="text-xs font-medium text-stone-700">🚕 計程車 Taxi</div>
+                  <p class="text-xs text-stone-600 mt-1.5">
+                    T1 航廈外排班，約 25–30 分鐘直達公寓門口。
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-terra/20 text-xs font-bold text-stone-800">
+                  車資約 €35–40／4人分攤每人約 <span class="text-terra">€9–10</span>
+                </div>
+              </div>
+              <!-- Plan 2 -->
+              <div class="p-3.5 rounded-xl border border-stone-200 bg-white flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <strong class="text-stone-800 font-bold">方案 2</strong>
+                    <span class="text-[10px] bg-stone-200 text-stone-700 px-2 py-0.5 rounded-full">地鐵直連</span>
+                  </div>
+                  <div class="text-xs font-medium text-stone-700">🚇 地鐵 L9S 轉 L5</div>
+                  <p class="text-xs text-stone-600 mt-1.5">
+                    L9S (Aeroport T1) 至 Collblanc 轉 L5 (藍線) 至 Sagrada Família，步行 3 分鐘 (約 55 分鐘)。
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-stone-100 text-xs font-bold text-stone-800">
+                  機場地鐵單程票 <span class="text-stone-700">€5.50 /人</span>
+                </div>
+              </div>
+              <!-- Plan 3 -->
+              <div class="p-3.5 rounded-xl border border-stone-200 bg-white flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <strong class="text-stone-800 font-bold">方案 3</strong>
+                    <span class="text-[10px] bg-stone-200 text-stone-700 px-2 py-0.5 rounded-full">機場巴士</span>
+                  </div>
+                  <div class="text-xs font-medium text-stone-700">🚌 Aerobús A1 轉地鐵</div>
+                  <p class="text-xs text-stone-600 mt-1.5">
+                    Aerobús A1 至加泰隆尼亞廣場轉 L2 地鐵或 Taxi (約 50–55 分鐘)。
+                  </p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-stone-100 text-xs font-bold text-stone-800">
+                  巴士 €7.25 + 地鐵 €1.25 (約 <span class="text-stone-700">€8.50 /人</span>)
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Controls & Filters Toolbar -->
-      <div class="space-y-3">
-        <!-- Search & Category Filters -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-          <!-- Search Input -->
-          <div class="relative flex-1">
-            <input type="text" id="search-input" oninput="filterItinerary()" placeholder="搜尋景點、餐廳或交通說明..." class="w-full bg-white border border-sand rounded-xl pl-9 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta shadow-xs" />
-            <svg class="w-4 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </div>
-
-          <!-- Tag Filters -->
-          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
-            <button onclick="setTagFilter('all')" class="tag-filter-btn active text-xs px-3 py-1.5 rounded-lg border font-medium transition bg-charcoal text-white border-charcoal" data-tag="all">全部標籤</button>
-            <button onclick="setTagFilter('已預約')" class="tag-filter-btn text-xs px-3 py-1.5 rounded-lg border border-sand bg-white text-gray-600 font-medium hover:border-terracotta transition" data-tag="已預約">🎫 已預約</button>
-            <button onclick="setTagFilter('美食')" class="tag-filter-btn text-xs px-3 py-1.5 rounded-lg border border-sand bg-white text-gray-600 font-medium hover:border-terracotta transition" data-tag="美食">🍽️ 美食</button>
-            <button onclick="setTagFilter('彈性')" class="tag-filter-btn text-xs px-3 py-1.5 rounded-lg border border-sand bg-white text-gray-600 font-medium hover:border-terracotta transition" data-tag="彈性">✨ 彈性行程</button>
-          </div>
+      <!-- Filters & Search Bar Section -->
+      <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+        <!-- Date Horizontal Filter -->
+        <div id="date-filter-bar" class="flex items-center gap-2 overflow-x-auto pb-2.5 custom-scrollbar text-xs">
+          <span class="text-stone-400 font-semibold whitespace-nowrap">📅 日期選擇：</span>
+          <button onclick="filterDate('all')" id="date-chip-all" class="date-chip active px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-terra text-white shadow-xs">全部 10 天</button>
+          <button onclick="filterDate('12/18')" id="date-chip-12/18" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/18 (五)</button>
+          <button onclick="filterDate('12/19')" id="date-chip-12/19" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/19 (六)</button>
+          <button onclick="filterDate('12/20')" id="date-chip-12/20" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/20 (日)</button>
+          <button onclick="filterDate('12/21')" id="date-chip-12/21" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/21 (一)</button>
+          <button onclick="filterDate('12/22')" id="date-chip-12/22" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/22 (二)</button>
+          <button onclick="filterDate('12/23')" id="date-chip-12/23" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/23 (三)</button>
+          <button onclick="filterDate('12/24')" id="date-chip-12/24" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/24 (四)</button>
+          <button onclick="filterDate('12/25')" id="date-chip-12/25" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/25 (五)</button>
+          <button onclick="filterDate('12/26')" id="date-chip-12/26" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/26 (六)</button>
+          <button onclick="filterDate('12/27')" id="date-chip-12/27" class="date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">12/27–28 (返台)</button>
         </div>
 
-        <!-- Date horizontal scroll pills -->
-        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1.5">
-          <button onclick="setDateFilter('all')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-terracotta text-white" data-date="all">全部天數</button>
-          <button onclick="setDateFilter('12-18')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-18">12/18 (五)</button>
-          <button onclick="setDateFilter('12-19')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-19">12/19 (六)</button>
-          <button onclick="setDateFilter('12-20')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-20">12/20 (日) 看球</button>
-          <button onclick="setDateFilter('12-21')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-21">12/21 (一)</button>
-          <button onclick="setDateFilter('12-22')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-22">12/22 (二)</button>
-          <button onclick="setDateFilter('12-23')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-23">12/23 (三)</button>
-          <button onclick="setDateFilter('12-24')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-24">12/24 (四) 平安夜</button>
-          <button onclick="setDateFilter('12-25')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-25">12/25 (五) 聖誕節</button>
-          <button onclick="setDateFilter('12-26')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-26">12/26 (六)</button>
-          <button onclick="setDateFilter('12-27')" class="date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta" data-date="12-27">12/27 (日) 返程</button>
+        <!-- Tag Filters & Search Row -->
+        <div class="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-2 border-t border-stone-100">
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+            <span class="text-stone-400 font-semibold whitespace-nowrap">🏷️ 類別：</span>
+            <button onclick="filterTag('all')" id="tag-chip-all" class="tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-olive text-white">全部</button>
+            <button onclick="filterTag('已預約')" id="tag-chip-已預約" class="tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">🎟️ 已預約</button>
+            <button onclick="filterTag('美食')" id="tag-chip-美食" class="tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">🥘 美食</button>
+            <button onclick="filterTag('交通')" id="tag-chip-交通" class="tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">🚇 交通</button>
+            <button onclick="filterTag('彈性')" id="tag-chip-彈性" class="tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200">🚶 彈性/漫遊</button>
+          </div>
+
+          <div class="relative w-full sm:w-64">
+            <input type="text" id="itinerary-search" oninput="handleSearch()" placeholder="搜尋關鍵字 (例：聖家堂、米拉)..." class="w-full pl-8 pr-3 py-1.5 bg-warmbg border border-stone-200 rounded-xl text-xs focus:outline-none focus:border-terra transition">
+            <span class="absolute left-2.5 top-2 text-stone-400 text-xs">🔍</span>
+          </div>
         </div>
       </div>
 
-      <!-- Days List Container -->
-      <div id="itinerary-list-container" class="space-y-6">
-        <!-- Rendered by JavaScript -->
+      <!-- Days Cards Render List -->
+      <div id="days-container" class="space-y-6">
+        <!-- Dynamic JS Injected Content -->
       </div>
-
-      <!-- Useful Travel Tips Footer Card -->
-      <div class="bg-sand/60 rounded-2xl p-5 border border-sand text-xs sm:text-sm text-gray-700 space-y-2">
-        <h3 class="font-bold text-charcoal text-base flex items-center gap-1.5">
-          💡 巴塞隆納實用出遊小提醒
-        </h3>
-        <ul class="list-disc list-inside space-y-1 text-gray-600">
-          <li><strong>交通卡推薦：</strong> 購買 <strong>T-casual 卡</strong>（單人不可共用，10 次票約 €12.15），適用公車與大部分地鐵。前往機場需購買機場地鐵特別票。</li>
-          <li><strong>4 人同行優勢：</strong> 市區 short trips 或含斜坡景點（如桂爾公園），4 人一起搭乘 Taxi / Cabify 非常划算且省力。</li>
-          <li><strong>防扒手警覺：</strong> 在蘭布拉大道、波蓋利亞市場、地鐵站與景點周圍，防盜斜肩包背前方，手機務必綁好手機掛繩。</li>
-        </ul>
-      </div>
-
     </section>
 
 
-    <!-- ==================== TAB 2: 🧳 行李清單 ==================== -->
-    <section id="tab-packing" class="hidden space-y-6">
+    <!-- ========================================== -->
+    <!-- TAB 2: 💰 每人預算總覽                     -->
+    <!-- ========================================== -->
+    <section id="tab-content-2" class="hidden space-y-6">
       
-      <!-- Progress Bar & Actions Header -->
-      <div class="bg-white rounded-2xl p-5 border border-sand shadow-sm space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <h2 class="text-xl font-bold text-charcoal">打包與準備事項進度</h2>
-            <p class="text-xs sm:text-sm text-gray-500">自動儲存勾選狀態，團員可當作隨身檢核參考</p>
+      <!-- Summary Header Box -->
+      <div class="bg-gradient-to-br from-terra to-terra-hover text-white p-6 rounded-2xl shadow-md relative overflow-hidden">
+        <div class="absolute -right-6 -bottom-6 text-9xl opacity-10">€</div>
+        <div class="relative z-10 space-y-2">
+          <div class="text-xs uppercase tracking-wider font-medium text-white/80">Local Expenditure Estimate per Person</div>
+          <h2 class="text-2xl sm:text-3xl font-bold">西班牙當地每人總花費預算</h2>
+          <p class="text-white/90 text-sm max-w-2xl">
+            此預估<strong class="underline decoration-white/40">不含</strong>國際機票、住宿費、諾坎普足球賽門票與個人精品購物。匯率以 <strong class="text-yellow-200">1 EUR ≈ NT$ 35</strong> 換算。
+          </p>
+          <div class="pt-3 flex flex-wrap items-baseline gap-3">
+            <span class="text-3xl sm:text-4xl font-extrabold text-yellow-300">€ 605 – € 755</span>
+            <span class="text-base text-white/90 font-semibold">(約 NT$ 21,200 – NT$ 26,400 /人)</span>
           </div>
-          <div class="flex items-center gap-2">
-            <button onclick="resetPackingList()" class="text-xs text-red-600 hover:bg-red-50 border border-red-200 px-3 py-2 rounded-lg font-medium transition">
-              🔄 重設勾選
+        </div>
+      </div>
+
+      <!-- Cash vs Card Highlight Card -->
+      <div class="bg-amber-50 border-2 border-amber-300/80 p-5 rounded-2xl shadow-xs space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">💶</span>
+          <h3 class="font-bold text-amber-900 text-base">現金與刷卡配置重要提醒</h3>
+        </div>
+        <div class="text-sm text-amber-900/90 leading-relaxed space-y-1.5">
+          <p class="font-bold text-terra">
+            📌 歐元現金建議每人準備：<span class="bg-white px-2 py-0.5 rounded border border-amber-300 text-lg">€ 300 左右（約台幣 NT$ 10,000）</span>
+          </p>
+          <p>
+            巴塞隆納幾乎所有景點、餐廳、連鎖超市、地鐵售票機甚至計程車均支援海外高回饋信用卡或 Apple Pay。現金主要用於路邊小攤販、古蹟小額捐款、偶爾零錢找零或緊急備用，隨身攜帶少量現金能大幅降低遭竊風險！
+          </p>
+        </div>
+      </div>
+
+      <!-- Detail Expense Grid Breakdown -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Item 1 -->
+        <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-charcoal text-base flex items-center gap-2">
+              <span class="p-1.5 bg-terra/10 text-terra rounded-lg text-sm">🎟️</span> 景點與預約門票
+            </span>
+            <span class="font-bold text-terra text-base">€ 190 – € 220</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium">約 NT$ 6,650 – NT$ 7,700</div>
+          <ul class="text-xs text-stone-600 space-y-1 pt-2 border-t border-stone-100 list-disc list-inside">
+            <li>聖保羅醫院 (€18) + 維森斯之家 (€19)</li>
+            <li>聖家堂含語音導覽、不登塔 (€26，未滿30歲 €24) + MNAC (€12)</li>
+            <li>桂爾宮 (€12) + 桂爾公園 (€10)</li>
+            <li>巴特略之家 (€35–45) + 米拉之家 (€28–38)</li>
+            <li>加泰羅尼亞音樂宮 (€18–22) + 畢卡索/Moco (€31)</li>
+          </ul>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-charcoal text-base flex items-center gap-2">
+              <span class="p-1.5 bg-olive/10 text-olive rounded-lg text-sm">🥘</span> 每日餐飲美食
+            </span>
+            <span class="font-bold text-olive text-base">€ 320 – € 400</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium">約 NT$ 11,200 – NT$ 14,000</div>
+          <ul class="text-xs text-stone-600 space-y-1 pt-2 border-t border-stone-100 list-disc list-inside">
+            <li>市場體驗：聖安東尼、波蓋利亞 (€15–20/餐)</li>
+            <li>人氣 Tapas：Cervecería Catalana, Paco Meralgo (€25–45/人)</li>
+            <li>海鮮餐館：7 Portes, Puertecillo Born (€25–50/人)</li>
+            <li>平安夜公寓自製大餐食材費分攤 (€15–20/人)</li>
+            <li>咖啡甜點：Granja M. Viader, Hofmann 可頌 (€5–10)</li>
+          </ul>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-charcoal text-base flex items-center gap-2">
+              <span class="p-1.5 bg-blue-50 text-blue-600 rounded-lg text-sm">🚇</span> 當地交通費用
+            </span>
+            <span class="font-bold text-charcoal text-base">€ 65 – € 85</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium">約 NT$ 2,275 – NT$ 2,975</div>
+          <ul class="text-xs text-stone-600 space-y-1 pt-2 border-t border-stone-100 list-disc list-inside">
+            <li>機場往返 4人計程車分攤 (~€20/人)</li>
+            <li>T-mobilitat 實體卡 + T-casual 10次券 2張 (€25/人)</li>
+            <li>出城一日遊火車/纜車套票 (€10–30/人)</li>
+            <li>市區偶爾短程 4人計程車共乘分攤 (€10/人)</li>
+          </ul>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-charcoal text-base flex items-center gap-2">
+              <span class="p-1.5 bg-purple-50 text-purple-600 rounded-lg text-sm">☕</span> 預備雜支與小費
+            </span>
+            <span class="font-bold text-stone-700 text-base">€ 30 – € 50</span>
+          </div>
+          <div class="text-xs text-stone-500 font-medium">約 NT$ 1,050 – NT$ 1,750</div>
+          <ul class="text-xs text-stone-600 space-y-1 pt-2 border-t border-stone-100 list-disc list-inside">
+            <li>飲用水、超市零食與水果採買</li>
+            <li>公共廁所預備硬幣或小額消費</li>
+            <li>滿意服務小費（非強制）與緊急雜支</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Transport & Travel Tips -->
+      <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+        <h3 class="font-bold text-charcoal text-sm flex items-center gap-2">
+          💡 巴塞隆納省錢與安全小撇步
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-stone-600">
+          <div class="p-3 bg-warmbg rounded-xl border border-stone-100">
+            <strong class="text-charcoal block mb-1">🎫 T-casual 票券新制</strong>
+            現已全面轉為 T-mobilitat 塑膠或紙質卡，每張卡限單人獨立使用，不可多人在同一次進站重複感應。
+          </div>
+          <div class="p-3 bg-warmbg rounded-xl border border-stone-100">
+            <strong class="text-charcoal block mb-1">🚕 4人同行善用計程車</strong>
+            巴塞隆納市區計程車起跳價平實，4人共乘短程 (2-3公里) 人均車資往往與搭地鐵差不多，還省去轉乘走路時間！
+          </div>
+          <div class="p-3 bg-warmbg rounded-xl border border-stone-100">
+            <strong class="text-charcoal block mb-1">⚠️ 舊城區防扒竊守則</strong>
+            蘭布拉大道、波蓋利亞市場與哥德區人群密集，手機請務必使用掛繩，包包前背，切勿將手機隨手放在露天餐桌上。
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- TAB 3: 🧳 團體行李清單                    -->
+    <!-- ========================================== -->
+    <section id="tab-content-3" class="hidden space-y-6">
+
+      <!-- Packing Progress Overview -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <div>
+            <h2 class="font-bold text-lg text-charcoal flex items-center gap-2">
+              <span>🧳</span> 團體打包檢查進度
+            </h2>
+            <p class="text-xs text-stone-500 mt-0.5">勾選紀錄會自動儲存於此瀏覽器中</p>
+          </div>
+          <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+            <span id="packing-count-text" class="text-xs font-semibold text-stone-600">已完成 0 / 24 項</span>
+
+            <!-- TWO-STAGE RESET BUTTON (NO ALERT / NO CONFIRM) -->
+            <button id="reset-checklist-btn" onclick="handleResetClick()" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-stone-100 text-stone-600 hover:bg-stone-200 transition border border-stone-300 shadow-xs flex items-center gap-1">
+              🔄 重置所有勾選
             </button>
           </div>
         </div>
 
         <!-- Progress Bar -->
-        <div class="space-y-1.5">
-          <div class="flex justify-between text-xs font-semibold text-gray-600">
-            <span>完成進度</span>
-            <span id="packing-progress-text">0 / 0 項 (0%)</span>
-          </div>
-          <div class="w-full bg-sand h-3 rounded-full overflow-hidden">
-            <div id="packing-progress-bar" class="bg-terracotta h-full transition-all duration-300" style="width: 0%"></div>
-          </div>
+        <div class="w-full bg-stone-100 h-3.5 rounded-full overflow-hidden p-0.5 border border-stone-200">
+          <div id="packing-progress-bar" class="bg-gradient-to-r from-terra to-amber-500 h-full rounded-full transition-all duration-300 w-0"></div>
         </div>
+        <div class="text-right text-xs font-extrabold text-terra" id="packing-percentage-text">0%</div>
+      </div>
 
-        <!-- Add Custom Item Input -->
-        <div class="pt-2 border-t border-gray-100 flex items-center gap-2">
-          <input type="text" id="custom-item-input" placeholder="新增自訂項目（例如：相機腳架、變壓器...）" class="flex-1 bg-warmbg border border-sand rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta" />
-          <button onclick="addCustomItem()" class="bg-olive hover:bg-olive-dark text-white px-4 py-2 rounded-xl text-sm font-medium transition shrink-0">
-            ＋ 新增
+      <!-- Add Custom Item Input Area -->
+      <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm space-y-2">
+        <div class="text-xs font-bold text-stone-700">➕ 新增自訂行李項目</div>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input type="text" id="custom-item-input" placeholder="輸入自訂行李名稱 (例如: 吹風機、發熱衣)..." class="flex-1 px-3 py-2 bg-warmbg border border-stone-200 rounded-xl text-xs focus:outline-none focus:border-terra transition">
+          <select id="custom-item-category" class="px-3 py-2 bg-warmbg border border-stone-200 rounded-xl text-xs focus:outline-none focus:border-terra text-stone-700">
+            <option value="證件文件">📄 證件文件</option>
+            <option value="電子設備">🔌 電子設備</option>
+            <option value="盥洗保養">🧴 盥洗保養</option>
+            <option value="衣物配件">🧥 衣物配件</option>
+            <option value="其他小物" selected>🎒 其他小物</option>
+          </select>
+          <button onclick="addCustomItem()" class="px-4 py-2 bg-terra hover:bg-terra-hover text-white text-xs font-semibold rounded-xl transition shadow-xs whitespace-nowrap">
+            + 新增
           </button>
         </div>
+        <!-- Inline Warning (Replaces Alert) -->
+        <div id="custom-input-error" class="hidden text-[11px] text-red-500 font-medium pl-1">
+          ⚠️ 請先輸入行李名稱！
+        </div>
       </div>
 
-      <!-- Category Groups -->
-      <div id="packing-categories-container" class="space-y-6">
-        <!-- Rendered by JS -->
+      <!-- Checklist Categories Container -->
+      <div id="checklist-categories-container" class="space-y-4">
+        <!-- JS Dynamic Content -->
       </div>
-
     </section>
 
   </main>
 
-  <!-- Notification Toast -->
-  <div id="toast" class="fixed bottom-6 right-6 bg-charcoal text-white text-xs sm:text-sm px-4 py-3 rounded-xl shadow-lg opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2 z-50 flex items-center gap-2">
-    <span>✅</span> <span id="toast-message">已複製到剪貼簿</span>
+  <!-- Global Toast Notification Container -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-charcoal text-white text-xs font-medium px-4 py-3 rounded-xl shadow-xl border border-stone-700 flex items-center gap-2 pointer-events-none">
+    <span id="toast-icon">ℹ️</span>
+    <span id="toast-msg">提示訊息</span>
   </div>
 
-  <!-- JavaScript Application Logic -->
+  <!-- JavaScript Logic -->
   <script>
-    /* ==========================================================================
-       DATA STRUCTURES
-       ========================================================================== */
-    
-    // Transport Tag Pills Helper
-    const metroPills = {
-      L1: { name: 'L1 紅線', bg: 'bg-red-600', text: 'text-white' },
-      L2: { name: 'L2 紫線', bg: 'bg-purple-600', text: 'text-white' },
-      L3: { name: 'L3 綠線', bg: 'bg-green-600', text: 'text-white' },
-      L4: { name: 'L4 黃線', bg: 'bg-yellow-500', text: 'text-gray-900' },
-      L5: { name: 'L5 藍線', bg: 'bg-blue-600', text: 'text-white' },
-      L9S: { name: 'L9S 橘線', bg: 'bg-orange-500', text: 'text-white' },
-      Bus: { name: 'Bus 公車', bg: 'bg-gray-700', text: 'text-white' },
-      Train: { name: 'Train 火車', bg: 'bg-purple-800', text: 'text-white' },
-      Walk: { name: 'Walk 步行', bg: 'bg-emerald-700', text: 'text-white' },
-      Taxi: { name: 'Taxi 計程車', bg: 'bg-amber-500', text: 'text-gray-900' }
-    };
-
-    // Full 10-Day Itinerary Data (Updated for 12/20 and 12/22)
     const itineraryData = [
       {
-        dateCode: '12-18',
-        dayTitle: '12/18 (五) ｜ 出發日',
-        summary: '搭乘國際航班前往阿布達比轉機',
-        items: [
+        day: 1,
+        date: '12/18',
+        weekday: '五',
+        title: '出發日｜台北 T2 → 阿布達比',
+        tag: '交通',
+        events: [
+          {
+            time: '16:00',
+            name: '桃園國際機場【第二航廈 T2】報到與托運',
+            type: 'spot',
+            note: '請於起飛前 2.5 小時抵達 T2 阿提哈德航空櫃檯辦理登機與托運',
+            cost: '€0',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Taoyuan+International+Airport+Terminal+2'
+          },
           {
             time: '18:40',
-            title: '台灣桃園國際機場 (TPE) 起飛',
-            transport: ['Walk'],
-            note: '請提前於 15:40 前抵達機場辦理登機與行李托運，搭乘阿聯酋／阿提哈德航班前往阿布達比轉機。',
-            mapQuery: 'Taiwan Taoyuan International Airport'
+            name: '台北 (TPE T2) 起飛前往阿布達比 (AUH)',
+            type: 'flight',
+            note: '搭乘【阿提哈德航空 Etihad Airways】（預計 12/19 00:30 抵達阿布達比）',
+            cost: '已付機票'
           }
         ]
       },
       {
-        dateCode: '12-19',
-        dayTitle: '12/19 (六) ｜ 抵達巴塞隆納＋擴展區市場體驗',
-        summary: '順利抵達、放行李、逛舊城傳統市場與聖誕市集',
-        items: [
+        day: 2,
+        date: '12/19',
+        weekday: '六',
+        title: '抵達日｜BCN T1 抵達＋聖安東尼市場＋適應時差',
+        tag: '美食',
+        events: [
           {
-            time: '06:55',
-            title: '抵達巴塞隆納機場 (BCN) ＆ 辦理入境',
-            transport: ['Taxi', 'L9S'],
-            note: '出關後建議 4 人直接搭計程車 (約 25-30 分鐘, €35-42) 直達 Sagrada Familia 公寓放行李。',
-            mapQuery: 'Josep Tarradellas Barcelona-El Prat Airport'
+            time: '00:30–02:35',
+            name: '阿布達比機場轉機 → 06:55 抵達巴塞隆納埃爾普拉特機場【T1】',
+            type: 'flight',
+            note: '抵達巴塞隆納第一航廈 (BCN T1)，通過申根海關檢驗並提取行李',
+            cost: '—'
+          },
+          {
+            time: '07:45',
+            name: '交通：BCN T1 機場 → 聖家堂住宿',
+            type: 'transit',
+            route: 'BCN T1 航廈 ➔ [4人計程車 Taxi / 地鐵 L9S 轉 L5] ➔ Suite Home Sagrada Familia',
+            duration: '約 25–30 分鐘 (Taxi)',
+            cost: '€9–10 /人 (Taxi分攤)'
+          },
+          {
+            time: '08:30',
+            name: 'Suite Home Sagrada Familia 寄放行李',
+            type: 'spot',
+            note: '公寓寄放行李，整理隨身裝備與洗漱',
+            cost: '€0',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Avinguda+de+Gaud%C3%AD,+28,+08025+Barcelona,+Spain'
+          },
+          {
+            time: '09:45',
+            name: '交通：住宿 → 聖安東尼市場',
+            type: 'transit',
+            route: 'Sagrada Família 站 ➔ [L2 紫線直達] ➔ Sant Antoni 站 (步行2分鐘)',
+            duration: '約 15 分鐘',
+            cost: '€1.25 (T-casual)'
           },
           {
             time: '10:30',
-            title: '聖安東尼市場 (Mercat de Sant Antoni)',
-            transport: ['L2'],
-            tag: '美食',
-            note: '交通：從 Sagrada Família 搭乘 L2 紫線直達 Sant Antoni 站 (約 15 分鐘)。週六傳統市場有開，在地氛圍濃郁，可以在這裡享用早午餐與 Tapas。',
-            mapQuery: 'Mercat de Sant Antoni Barcelona'
+            name: '聖安東尼市場 (Mercat de Sant Antoni)',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '週六營業至 20:30。感受當地傳統鋼構市場風情，體驗 Tapas 與新鮮海鮮午餐',
+            cost: '€15–20 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Mercat+de+Sant+Antoni+Barcelona'
           },
           {
             time: '14:00',
-            title: '返回公寓辦理 Check-in ＆ 補眠休息',
-            transport: ['L2', 'Walk'],
-            note: '回到 Suite Home Sagrada Familia Check-in，調整時差與休息整備。',
-            mapQuery: 'Avinguda de Gaudí 28 Barcelona'
+            name: '交通：聖安東尼市場 → 住宿',
+            type: 'transit',
+            route: 'Sant Antoni 站 ➔ [L2 紫線] ➔ Sagrada Família 站',
+            duration: '約 15 分鐘',
+            cost: '€1.25 (T-casual)'
           },
           {
-            time: '17:00',
-            title: '高第大道散步 ＆ 聖家堂聖誕市集 (Fira de Santa Llúcia / Sagrada Família)',
-            transport: ['Walk'],
-            note: '沿著公寓門口的高第大道（Avinguda de Gaudí）悠閒散步，參觀聖家堂前廣場濃厚的聖誕市集攤位。',
-            mapQuery: 'Avinguda de Gaudi Barcelona'
+            time: '14:30',
+            name: '回公寓辦理入住 (Check-in) 補眠',
+            type: 'spot',
+            note: '進房間休息適應時差。傍晚可沿高第大道散步、逛聖家堂前聖誕市集（免費）與周邊 Mercadona 超市採買水果零食',
+            cost: '超市約 €15 /人'
           }
         ]
       },
       {
-        dateCode: '12-20',
-        dayTitle: '12/20 (日) ｜ 聖保羅醫院＋買球衣充電＋諾坎普看球日 ⚽',
-        summary: '上午高第大道悠閒參觀與購物，下午回公寓充電，晚上迎接重頭戲球賽！',
-        items: [
+        day: 3,
+        date: '12/20',
+        weekday: '日',
+        title: '高第大道悠閒上午＋諾坎普足球日',
+        tag: '美食',
+        events: [
+          {
+            time: '09:15',
+            name: '交通：住宿 → 聖保羅醫院',
+            type: 'transit',
+            route: '公寓 ➔ [沿高第大道 Avinguda de Gaudí 步行] ➔ 聖保羅醫院正門',
+            duration: '步行約 5 分鐘',
+            cost: '€0'
+          },
           {
             time: '09:30',
-            title: '聖保羅醫院 (Recinte Modernista de Sant Pau)',
-            transport: ['Walk'],
-            note: '交通：從公寓沿高第大道步行僅約 5 分鐘即達。週日 09:30 開放參觀（上午門票 18€）。世界最大的現代主義建築群，極其華麗舒適！',
-            mapQuery: 'Recinte Modernista de Sant Pau'
+            name: '聖保羅醫院 (Recinte Modernista de Sant Pau)',
+            type: 'spot',
+            note: '世界文化遺產，全球最美醫院。週日 09:30 開放門票進場',
+            cost: '門票 €18 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Recinte+Modernista+de+Sant+Pau'
+          },
+          {
+            time: '11:15',
+            name: '交通：聖保羅醫院 → 巴薩專賣店',
+            type: 'transit',
+            route: '聖保羅醫院 ➔ [沿高第大道步行] ➔ Barça Store Sagrada Família',
+            duration: '步行 6–8 分鐘',
+            cost: '€0'
           },
           {
             time: '11:30',
-            title: '巴薩官方專賣店 (Barça Store Sagrada Família) 購買週邊 ＋ 午餐',
-            transport: ['Walk'],
-            note: '交通：從聖保羅醫院沿高第大道走回聖家堂旁（步行 5–8 分鐘）。前往 Barça Store 購買球衣、圍巾等週邊裝備，並在高第大道周邊享用午餐。',
-            mapQuery: 'Barça Store Sagrada Família'
-          },
-          {
-            time: '14:00',
-            title: '回公寓換輕裝 / 球衣 ＋ 充電與休整',
-            transport: ['Walk'],
-            note: '交通：步行 3 分鐘回到公寓。換上看球裝備、將手機與行動電源充飽電，保持最佳體力準備晚上熱血看球！',
-            mapQuery: 'Avinguda de Gaudí 28 Barcelona'
-          },
-          {
-            time: '賽前出發',
-            title: '諾坎普球場 (Spotify Camp Nou) 看球：巴塞隆納 vs 皇家社會',
-            transport: ['L5', 'Walk'],
-            tag: '已預約',
-            note: '交通：從 Sagrada Família 站搭乘 L5 藍線直達 Collblanc 或 Badal 站 (完全免轉車，約 20 分鐘)，出站步行約 8–10 分鐘抵達球場。請預留充足時間驗票進場！',
-            mapQuery: 'Spotify Camp Nou Barcelona'
-          }
-        ]
-      },
-      {
-        dateCode: '12-21',
-        dayTitle: '12/21 (一) ｜ 擴展區：維森斯之家＋格拉西亞大道逛街',
-        summary: '高第第一座建築作品與巴塞隆納時尚奢華大道購物之旅',
-        items: [
-          {
-            time: '09:30',
-            title: '維森斯之家 (Casa Vicens Gaudí)',
-            transport: ['Bus', 'L5', 'L3'],
-            note: '交通：搭乘公車 V19 或地鐵 L5 至 Diagonal 轉 L3 至 Fontana 站 (約 20 分鐘)。週一照常開放 (09:30-18:00)，展現伊斯蘭伊斯帕諾色彩的早期高第建築。',
-            mapQuery: 'Casa Vicens Gaudí'
-          },
-          {
-            time: '12:30',
-            title: '午餐：Cervecería Catalana (超人氣 Tapas 名店)',
-            transport: ['L3', 'Walk'],
-            tag: '美食',
-            note: '交通：從 Fontana 搭 L3 至 Diagonal 站步行 5 分鐘。巴塞隆納極高好評的 Tapas，建議 12:30 前抵達免久候，必點海鮮與串燒！',
-            mapQuery: 'Cerveceria Catalana Barcelona'
+            name: 'Barça Store 購買週邊 ＆ 聖家堂周邊午餐',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '選購巴薩隊服、圍巾為下午球賽做準備！午餐於周邊餐館品嚐西班牙香腸與燉飯',
+            cost: '午餐 €18–22 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Barca+Store+Sagrada+Familia'
           },
           {
             time: '14:30',
-            title: '格拉西亞大道 (Passeig de Gràcia) 購物與精品街漫步',
-            transport: ['Walk'],
-            note: '沿大道欣賞精品店店面與聖誕燈飾裝飾，一路漫步逛街採買精品與當地品牌。',
-            mapQuery: 'Passeig de Gracia Barcelona'
+            name: '交通：住宿 → 諾坎普球場',
+            type: 'transit',
+            route: 'Sagrada Família 站 ➔ [L5 藍線直達] ➔ Collblanc 或 Badal 站 (步行 8-10 分鐘)',
+            duration: '約 28 分鐘',
+            cost: '€1.25 (T-casual)'
           },
           {
-            time: '18:30',
-            title: '晚餐：Paco Meralgo 或 El Nacional Barcelona',
-            transport: ['Walk'],
-            tag: '美食',
-            note: '可選擇精緻極致 Tapas「Paco Meralgo」或匯聚多間酒吧美食的超華麗複合式廣場「El Nacional」。',
-            mapQuery: 'El Nacional Barcelona'
+            time: '15:30',
+            name: '諾坎普球場 (Spotify Camp Nou) 西甲聯賽：巴塞隆納 vs 皇家社會',
+            type: 'spot',
+            note: '感受現場數萬球迷狂熱震撼！賽後人群擁擠，請保管好隨身財物',
+            cost: '待購票',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Spotify+Camp+Nou'
+          },
+          {
+            time: '19:30',
+            name: '交通：諾坎普球場 → 住宿',
+            type: 'transit',
+            route: 'Collblanc 站 ➔ [L5 藍線直達] ➔ Sagrada Família 站',
+            duration: '約 25 分鐘',
+            cost: '€1.25 (T-casual)'
           }
         ]
       },
       {
-        dateCode: '12-22',
-        dayTitle: '12/22 (二) ｜ 聖家堂＋蒙特惠奇山夕陽 🌅',
-        summary: '朝聖高第神級傑作，下午登上蒙特惠奇山與 MNAC 大台階欣賞夕陽',
-        items: [
+        day: 4,
+        date: '12/21',
+        weekday: '一',
+        title: '擴展區：維森斯之家＋格拉西亞大道逛街美食',
+        tag: '美食',
+        events: [
           {
-            time: '09:00',
-            title: '聖家堂 (Basílica de la Sagrada Família)',
-            transport: ['Walk'],
-            tag: '已預約',
-            note: '交通：公寓步行 3 分鐘。早晨陽光照射「受難立面」光線極佳，請務必準時依預約時段入場。',
-            mapQuery: 'Basílica de la Sagrada Família'
+            time: '09:35',
+            name: '交通：住宿 → 維森斯之家',
+            type: 'transit',
+            route: 'Dos de Maig ➔ [公車 V19 或 L5轉L3] ➔ Fontana 站',
+            duration: '約 20 分鐘',
+            cost: '€1.25 (T-casual)'
+          },
+          {
+            time: '10:00',
+            name: '維森斯之家 (Casa Vicens Gaudí)',
+            type: 'spot',
+            note: '高第在巴塞隆納的第一座處女作建築，充滿摩爾風格與伊斯蘭瓷磚藝術',
+            cost: '門票 €19 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Casa+Vicens+Gaudi'
           },
           {
             time: '12:00',
-            title: '高第大道周邊午餐 ＆ 休息',
-            transport: ['Walk'],
-            tag: '美食',
-            note: '聖家堂周邊或高第大道餐廳享用午餐，休息整備。',
-            mapQuery: 'Avinguda de Gaudi Barcelona'
+            name: '交通：維森斯之家 → Cervecería Catalana',
+            type: 'transit',
+            route: 'Fontana 站 ➔ [L3 綠線] ➔ Diagonal 站 (步行6分鐘)',
+            duration: '約 15 分鐘',
+            cost: '€1.25 (T-casual)'
           },
           {
-            time: '14:00',
-            title: '蒙特惠奇山 (Montjuïc) ＆ 蒙特惠奇城堡',
-            transport: ['L5', 'L3', 'Walk'],
-            note: '交通：搭乘 L5 至 Diagonal 轉 L3 (或 L2 轉 L1) 至 Espanya 站 (約 25 分鐘)。城堡開放至 18:00，可俯瞰巴塞隆納港灣景色。',
-            mapQuery: 'Montjuic Castle Barcelona'
-          },
-          {
-            time: '17:00',
-            title: '加泰羅尼亞國家藝術博物館 (MNAC) 門前台階看夕陽',
-            transport: ['Walk'],
-            note: '週二 MNAC 開放至 20:00。在博物館前浩瀚的大台階上，欣賞巴塞隆納市景與地中海夕陽霞光（路過魔幻噴泉拍照）。',
-            mapQuery: 'Museu Nacional d Art de Catalunya'
-          }
-        ]
-      },
-      {
-        dateCode: '12-23',
-        dayTitle: '12/23 (三) ｜ 出城一日遊（二選一彈性安排）',
-        summary: '山嶽聖地蒙特塞拉特 或 白邊海濱小鎮錫切斯',
-        items: [
-          {
-            time: '全天 Option A',
-            title: '蒙特塞拉特山 (Montserrat) 聖石山脈之旅',
-            transport: ['L1', 'Train'],
-            tag: '彈性',
-            note: '交通：地鐵至 Espanya 站轉乘 FGC 火車 R5 線至 Monistrol de Montserrat (約 1 小時)，轉乘齒軌火車或纜車上山。13:00 男童唱詩班需預約。',
-            mapQuery: 'Montserrat Monastery Spain'
-          },
-          {
-            time: '全天 Option B',
-            title: '錫切斯 (Sitges) 白色海濱小鎮浪漫漫步',
-            transport: ['L5', 'Train'],
-            tag: '彈性',
-            note: '交通：L5 至 Sants Estació 轉乘 Renfe R2 Sud 火車直達 Sitges 站 (約 40 分鐘)。感受地中海溫暖海風與浪漫白色街道。',
-            mapQuery: 'Sitges Spain'
-          },
-          {
-            time: '19:00',
-            title: '晚餐：La Rita (高 CP 值加泰隆尼亞料理)',
-            transport: ['L5', 'L2'],
-            tag: '美食',
-            note: '交通：搭乘地鐵回 Passeig de Gràcia 站步行 5 分鐘。回程順便在附近超市買齊 12/24 平安夜自煮大餐食材。',
-            mapQuery: 'La Rita Restaurant Barcelona'
-          }
-        ]
-      },
-      {
-        dateCode: '12-24',
-        dayTitle: '12/24 (四) ｜ 平安夜：蘭布拉大道＋港區＋公寓大餐 🎄',
-        summary: '品嚐百年傳統吉拿棒、逛波蓋利亞市場與海港，溫馨自煮平安夜大餐',
-        items: [
-          {
-            time: '09:00',
-            title: '早餐：Granja M. Viader 百年吉拿棒配濃郁熱巧克力',
-            transport: ['L2', 'L3'],
-            tag: '美食',
-            note: '交通：搭乘 L2 至 Universitat 或 L5 轉 L3 至 Liceu 站 (約 20 分鐘)。1904 年創立的百年老店，必吃 Churros 配熱巧克力。',
-            mapQuery: 'Granja M. Viader Barcelona'
-          },
-          {
-            time: '10:30',
-            title: '波蓋利亞市場 (Mercat de la Boqueria) ＆ 蘭布拉大道',
-            transport: ['Walk'],
-            tag: '美食',
-            note: '巴塞隆納最知名的傳統食材市場，欣賞色彩繽紛的水果攤與火腿攤。',
-            mapQuery: 'Mercat de la Boqueria'
-          },
-          {
-            time: '13:30',
-            title: '桂爾宮 (Palau Güell) ＆ 哥倫布紀念碑 ＆ 貝爾港 (Port Vell)',
-            transport: ['Walk'],
-            note: '參觀高第早期奢華宅邸桂爾宮 (12/25-26 公休，今天前往最適宜)，隨後一路漫步至哥倫布紀念碑與海邊港區。',
-            mapQuery: 'Palau Guell Barcelona'
-          },
-          {
-            time: '18:00',
-            title: '返回公寓備料 ＆ 自煮平安夜聖誕大餐 🎅',
-            transport: ['L3', 'L5'],
-            note: '西班牙平安夜店家多提前打烊，回 Suite Home 公寓大展身手自煮大餐。餐後可步行至聖家堂欣賞夜間點燈！',
-            mapQuery: 'Avinguda de Gaudí 28 Barcelona'
-          }
-        ]
-      },
-      {
-        dateCode: '12-25',
-        dayTitle: '12/25 (五) ｜ 聖誕節：高第三大經典建築巡禮',
-        summary: '桂爾公園、巴特略之家與米拉之家，全年無休聖誕狂歡建築饗宴',
-        items: [
-          {
-            time: '10:30',
-            title: '桂爾公園 (Park Güell)',
-            transport: ['Bus', 'Taxi'],
-            tag: '已預約',
-            note: '交通：建議 4 人直接搭 Taxi (約 10 分鐘直達省爬坡) 或搭乘 Bus V19。聖誕節全年無休，朝聖繽紛彩色蜥蜴與馬賽克長椅！',
-            mapQuery: 'Park Guell Barcelona'
-          },
-          {
-            time: '13:00',
-            title: '格拉西亞區 (Gràcia) 午餐休息',
-            transport: ['Walk'],
-            tag: '美食',
-            note: '在格拉西亞區尋找營業的特色小店或簡餐。',
-            mapQuery: 'Gracia Barcelona'
-          },
-          {
-            time: '15:45',
-            title: '巴特略之家 (Casa Batlló)',
-            transport: ['Taxi', 'Bus'],
-            tag: '已預約',
-            note: '交通：搭乘 Taxi 約 12 分鐘，或搭 Bus 24 / V19 下山至 Passeig de Gràcia。海洋與骨頭意象交織的高第奇幻代表作。',
-            mapQuery: 'Casa Batllo Barcelona'
-          },
-          {
-            time: '17:30',
-            title: '米拉之家 (La Pedrera - Casa Milà)',
-            transport: ['Walk'],
-            note: '交通：從巴特略之家沿格拉西亞大道步行 6 分鐘即達。推薦傍晚或夜間時段入場，感受波浪型石材建築與獨特外星人煙囪！',
-            mapQuery: 'La Pedrera Casa Mila Barcelona'
-          }
-        ]
-      },
-      {
-        dateCode: '12-26',
-        dayTitle: '12/26 (六) ｜ 聖史蒂芬節：舊城區全集中 (波恩區＋哥德區)',
-        summary: '音樂宮、畢卡索美術館、藝術迷必訪 Moco 博物館與海鮮燉飯大餐',
-        items: [
-          {
-            time: '10:00',
-            title: '加泰羅尼亞音樂宮 (Palau de la Música Catalana)',
-            transport: ['L2', 'Walk'],
-            note: '交通：搭乘 L2 至 Urquinaona 或 Tetuan 站步行約 5 分鐘。12/26 恢復日間參觀，欣賞極致奢華的花朵玻璃彩繪穹頂。',
-            mapQuery: 'Palau de la Musica Catalana'
-          },
-          {
-            time: '12:30',
-            title: '午餐與甜點：Puertecillo Born 現烤海鮮 ＋ Pastisseria Hofmann 可頌',
-            transport: ['Walk'],
-            tag: '美食',
-            note: '步行 8 分鐘至波恩區。享用現點現烤新鮮海鮮「Puertecillo」，並朝聖 Michelin 推薦爆漿可頌「Hofmann」。',
-            mapQuery: 'Pastisseria Hofmann Barcelona'
+            time: '12:15',
+            name: '午餐：Cervecería Catalana (人氣 Tapas)',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '巴塞隆納超高評價 Tapas 名店！建議 12:30 前抵達免久候。必點竹蟶、烤鵝肝牛排與海鮮拼盤',
+            cost: '€25–30 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Cerveceria+Catalana+Barcelona'
           },
           {
             time: '14:30',
-            title: '畢卡索美術館 ＆ Moco Museum Barcelona 潮流藝術展',
-            transport: ['Walk'],
-            note: '兩座博物館位於同一條街上 (步行 1 分鐘)，逛完後繼續漫步於波恩區巷弄與哥德區巴塞隆納大教堂周邊。',
-            mapQuery: 'Museu Picasso Barcelona'
+            name: '格拉西亞大道 (Passeig de Gràcia) 逛街購物',
+            type: 'spot',
+            badge: '🚶 彈性',
+            note: '精品大道漫步，包含 Zara, Mango, LOEWE 等西班牙在地品牌旗艦店',
+            cost: '購物依個人'
+          },
+          {
+            time: '19:00',
+            name: '晚餐：Paco Meralgo 或 El Nacional Barcelona',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '體驗精緻 Tapas 或華麗的多功能西班牙美食殿堂',
+            cost: '€30–45 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Paco+Meralgo+Barcelona'
+          },
+          {
+            time: '21:00',
+            name: '交通：餐廳 → 住宿',
+            type: 'transit',
+            route: 'Diagonal 站 (L5) 或 Passeig de Gràcia 站 (L2) ➔ 回 Sagrada Família 站',
+            duration: '約 12 分鐘',
+            cost: '€1.25 (T-casual)'
+          }
+        ]
+      },
+      {
+        day: 5,
+        date: '12/22',
+        weekday: '二',
+        title: '聖家堂＋蒙特惠奇山＆MNAC 夕陽',
+        tag: '已預約',
+        events: [
+          {
+            time: '08:50',
+            name: '交通：住宿 → 聖家堂正門',
+            type: 'transit',
+            route: '公寓 ➔ [步行] ➔ 聖家堂誕生立面入口',
+            duration: '步行 3 分鐘',
+            cost: '€0'
+          },
+          {
+            time: '09:00',
+            name: '聖家堂 (Basílica de la Sagrada Família)',
+            type: 'spot',
+            badge: '🎟️ 已預約',
+            note: '高第神級傑作！門票含中文語音導覽（不登塔）',
+            cost: '門票 €26 /人 (未滿30歲 €24)',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Bas%C3%ADlica+de+la+Sagrada+Fam%C3%ADlia'
+          },
+          {
+            time: '12:00',
+            name: '高第大道周邊精緻午餐',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '聖家堂周邊海鮮飯或輕食餐館休息',
+            cost: '€18–22 /人'
+          },
+          {
+            time: '13:30',
+            name: '交通：聖家堂 → 蒙特惠奇山＆MNAC',
+            type: 'transit',
+            route: 'Sagrada Família 站 ➔ [L5轉L1 / L2轉L3] ➔ Espanya 站 (搭手扶梯上山)',
+            duration: '約 25 分鐘',
+            cost: '€1.25 (T-casual)'
+          },
+          {
+            time: '14:00',
+            name: '蒙特惠奇山 (Montjuïc) ＆ 加泰羅尼亞國家藝術博物館 (MNAC)',
+            type: 'spot',
+            note: '週二開放至 20:00。傍晚於 MNAC 館前大台階欣賞整座巴塞隆納絕美夕陽與夜景',
+            cost: '門票 €12 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=MNAC+Barcelona'
+          },
+          {
+            time: '19:00',
+            name: '交通：Espanya 站 → 住宿',
+            type: 'transit',
+            route: 'Espanya 站 ➔ [L1轉L5 或 L3轉L2] ➔ 回 Sagrada Família 站',
+            duration: '約 25 分鐘',
+            cost: '€1.25 (T-casual)'
+          }
+        ]
+      },
+      {
+        day: 6,
+        date: '12/23',
+        weekday: '三',
+        title: '出城一日遊（二選一：蒙特塞拉特山 或 錫切斯）',
+        tag: '彈性',
+        events: [
+          {
+            time: '08:30',
+            name: '交通：住宿 → 出城車站',
+            type: 'transit',
+            route: '方案A：搭地鐵至 Espanya 站轉 FGC R5 火車 ｜ 方案B：搭地鐵至 Passeig de Gràcia 轉 Renfe R2 火車',
+            duration: '約 20 分鐘',
+            cost: '€1.25 (T-casual)'
+          },
+          {
+            time: '09:30–16:30',
+            name: '二選一出城遊覽：A. 蒙特塞拉特山 Montserrat ｜ B. 錫切斯 Sitges',
+            type: 'spot',
+            badge: '🚶 彈性',
+            note: 'A. 聖山奇岩修道院與黑聖母（13:00 男童唱詩班）｜ B. 地中海絕美白色小鎮海灘漫步。返程時可至超市採買 12/24 平安夜公寓大餐食材',
+            cost: '來回交通約 €10–30 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Montserrat+Abbey'
+          },
+          {
+            time: '19:30',
+            name: '晚餐：La Rita (擴展區高 CP 值加泰隆尼亞菜)',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '優雅精緻的加泰隆尼亞經典料理，氣氛絕佳',
+            cost: '€25–30 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=La+Rita+Restaurant+Barcelona'
+          },
+          {
+            time: '21:30',
+            name: '交通：La Rita → 住宿',
+            type: 'transit',
+            route: 'Passeig de Gràcia 站 ➔ [L2 紫線] ➔ 回 Sagrada Família 站',
+            duration: '約 12 分鐘',
+            cost: '€1.25 (T-casual)'
+          }
+        ]
+      },
+      {
+        day: 7,
+        date: '12/24',
+        weekday: '四',
+        title: '平安夜：蘭布拉大道＋桂爾宮＋港區＋公寓聖誕大餐',
+        tag: '美食',
+        events: [
+          {
+            time: '09:10',
+            name: '交通：住宿 → Granja M. Viader',
+            type: 'transit',
+            route: 'Sagrada Família 站 ➔ [L2] ➔ Universitat 站 (步行 8 分鐘)',
+            duration: '約 20 分鐘',
+            cost: '€1.25 (T-casual)'
+          },
+          {
+            time: '09:30',
+            name: '早餐：Granja M. Viader 百年老店吉拿棒',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '創立於 1870 年的百年甜點老店，必點濃郁熱可可佐現炸 Churros 與 Cacaolat',
+            cost: '€6–10 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Granja+M+Viader'
+          },
+          {
+            time: '10:30',
+            name: '波蓋利亞市場 (Mercat de la Boqueria)',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '蘭布拉大道上最知名的食尚市場，嚐伊比利火腿薄片與現榨熱帶果汁',
+            cost: '€12–18 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Mercat+de+la+Boqueria'
+          },
+          {
+            time: '13:00',
+            name: '桂爾宮 (Palau Güell)',
+            type: 'spot',
+            note: '高第早期的豪宅經典，屋頂有色彩繽紛的煙囪樹林（12/25–26 公休，平安夜前來）',
+            cost: '門票 €12 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Palau+Guell'
+          },
+          {
+            time: '15:00',
+            name: '哥倫布紀念碑 ＆ 貝爾港 (Port Vell) 海邊散步',
+            type: 'spot',
+            badge: '🚶 彈性',
+            note: '漫步至地中海港區，欣賞海港風光與地中海陽光',
+            cost: '免費',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Port+Vell+Barcelona'
+          },
+          {
+            time: '17:30',
+            name: '交通：海港 → 住宿',
+            type: 'transit',
+            route: 'Drassanes 站 ➔ [L3轉L2 (於Paral·lel轉乘)] ➔ 回 Sagrada Família 站',
+            duration: '約 22 分鐘',
+            cost: '€1.25 (T-casual)'
           },
           {
             time: '18:30',
-            title: '晚餐：7 Portes (百年海鮮燉飯) 或 La Fonda',
-            transport: ['Walk'],
-            tag: '美食',
-            note: '享用正宗加泰隆尼亞海鮮燉飯 Paella (建議預先訂位)。',
-            mapQuery: '7 Portes Barcelona'
+            name: '4人平安夜公寓自製聖誕大餐 ＆ 聖家堂夜間點燈',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '歐洲平安夜多數店家早關門，於公寓共享大餐與紅酒，飯後步行欣賞聖家堂夜間點燈',
+            cost: '食材約 €15–20 /人'
           }
         ]
       },
       {
-        dateCode: '12-27',
-        dayTitle: '12/27 (日) ｜ 返程日：滿載而歸 ✈️',
-        summary: '清晨搭車前往機場辦理退稅，搭機返回台灣',
-        items: [
+        day: 8,
+        date: '12/25',
+        weekday: '五',
+        title: '聖誕節：高第三大建築日（全程全年無休）',
+        tag: '已預約',
+        events: [
+          {
+            time: '10:00',
+            name: '交通：住宿 → 桂爾公園',
+            type: 'transit',
+            route: '公寓 ➔ [4人共乘 Taxi 直達正門 / 公車 V19]',
+            duration: '約 10 分鐘',
+            cost: 'Taxi約 €3 /人'
+          },
+          {
+            time: '10:30',
+            name: '桂爾公園 (Park Güell)',
+            type: 'spot',
+            badge: '🎟️ 已預約',
+            note: '高第童話童趣公園，著名彩瓷蜥蜴與巴塞隆納全景大露台',
+            cost: '門票 €10 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Park+Guell'
+          },
+          {
+            time: '12:30',
+            name: '交通：桂爾公園 → 格拉西亞大道',
+            type: 'transit',
+            route: '桂爾公園正門 ➔ [4人共乘 Taxi / 24號公車] ➔ Passeig de Gràcia',
+            duration: '約 12 分鐘',
+            cost: 'Taxi約 €3.5 /人'
+          },
+          {
+            time: '12:45',
+            name: '格拉西亞區聖誕節特別午餐',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '享用預約好的聖誕特餐',
+            cost: '€25–35 /人'
+          },
+          {
+            time: '15:45',
+            name: '巴特略之家 (Casa Batlló)',
+            type: 'spot',
+            badge: '🎟️ 已預約',
+            note: '以龍脊與海洋為靈感的魔幻建築，配有超炫 VR 導覽器',
+            cost: '門票 €35–45 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Casa+Batllo'
+          },
+          {
+            time: '17:30',
+            name: '米拉之家 (La Pedrera - Casa Milà)',
+            type: 'spot',
+            note: '波浪形石材外觀與外星人盔甲煙囪，欣賞傍晚燈光微醺美景',
+            cost: '門票 €28–38 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=La+Pedrera+Casa+Mila'
+          },
+          {
+            time: '19:30',
+            name: '交通：米拉之家 → 住宿',
+            type: 'transit',
+            route: 'Diagonal 站 ➔ [L5 藍線直達] ➔ 回 Sagrada Família 站',
+            duration: '約 10 分鐘',
+            cost: '€1.25 (T-casual)'
+          }
+        ]
+      },
+      {
+        day: 9,
+        date: '12/26',
+        weekday: '六',
+        title: '聖史蒂芬節：舊城區全集中日（波恩區＋哥德區）',
+        tag: '美食',
+        events: [
+          {
+            time: '09:00',
+            name: '交通：住宿 → 加泰羅尼亞音樂宮',
+            type: 'transit',
+            route: 'Sagrada Família 站 ➔ [L5轉L1] ➔ Urquinaona 站 (步行3分鐘)',
+            duration: '約 18 分鐘',
+            cost: '€1.25 (T-casual)'
+          },
+          {
+            time: '09:30',
+            name: '加泰羅尼亞音樂宮 (Palau de la Música Catalana)',
+            type: 'spot',
+            note: '現代主義建築瑰寶，陽光透射彩繪玻璃水滴穹頂美到令人屏息',
+            cost: '門票 €18–22 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Palau+de+la+Musica+Catalana'
+          },
+          {
+            time: '12:00',
+            name: '午餐：Puertecillo Born ＆ Pastisseria Hofmann 可頌',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '現點現烤平價新鮮海鮮，飯後必吃 Hofmann 爆漿烤可頌甜點！',
+            cost: '€30 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Pastisseria+Hofmann+Barcelona'
+          },
+          {
+            time: '14:00',
+            name: '畢卡索美術館 (Museu Picasso) ＆ Moco Museum',
+            type: 'spot',
+            note: '同一條古老街巷一次造訪大師大作與現代潮流 Banksy 藝術展',
+            cost: '門票 €31 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=Museu+Picasso+Barcelona'
+          },
+          {
+            time: '19:00',
+            name: '晚餐：7 Portes (百年海鮮燉飯名店) 或 La Fonda',
+            type: 'spot',
+            badge: '🥘 美食',
+            note: '品嚐最地道的西班牙海鮮燉飯 (Paella)',
+            cost: '€25–50 /人',
+            maps: 'https://www.google.com/maps/search/?api=1&query=7+Portes+Barcelona'
+          },
+          {
+            time: '21:30',
+            name: '交通：晚餐 → 住宿',
+            type: 'transit',
+            route: 'Barceloneta 站 (L4) ➔ [轉乘L2] 或 4人共乘 Taxi 回公寓',
+            duration: '約 12 分鐘',
+            cost: 'Taxi約 €3.5 /人'
+          }
+        ]
+      },
+      {
+        day: 10,
+        date: '12/27',
+        weekday: '日',
+        title: '返程日｜BCN T1 → 阿布達比 → 12/28 抵達台灣 T2',
+        tag: '交通',
+        events: [
           {
             time: '07:00',
-            title: '預約 Taxi 從公寓出發前往巴塞隆納機場 (BCN)',
-            transport: ['Taxi'],
-            note: '預計 07:30 前抵達 BCN T1 機場，辦理海關蓋章、電子退稅 (DIVA) 與登機手續。',
-            mapQuery: 'Josep Tarradellas Barcelona-El Prat Airport'
+            name: '交通：住宿 → 巴塞隆納機場 T1',
+            type: 'transit',
+            route: '預約 4人 Taxi 計程車直達巴塞隆納機場【第一航廈 BCN T1】',
+            duration: '約 25–30 分鐘',
+            cost: '€9–10 /人 (Taxi分攤)'
+          },
+          {
+            time: '07:30',
+            name: 'BCN T1 DIVA 機台電子退稅 ＆ 阿提哈德櫃檯報到托運',
+            type: 'spot',
+            note: '至 DIVA 機器掃瞄退稅單 QR code，並辦理行李托運',
+            cost: '—'
           },
           {
             time: '10:05',
-            title: '巴塞隆納起飛前往阿布達比 (AUH)',
-            transport: ['Walk'],
-            note: '19:30 抵達阿布達比，準備轉機返台。平安結束巴塞隆納聖誕看球之旅！',
-            mapQuery: 'Abu Dhabi International Airport'
+            name: '巴塞隆納 (BCN T1) 起飛前往阿布達比 (AUH)',
+            type: 'flight',
+            note: '搭乘【阿提哈德航空】前往阿布達比 (19:30 抵達轉機返台)',
+            cost: '已付機票'
+          },
+          {
+            time: '12/28 09:00',
+            name: '抵達台北桃園國際機場【第二航廈 T2】',
+            type: 'flight',
+            note: '平安返抵台灣，滿載西班牙美好回憶！',
+            cost: '—'
           }
         ]
       }
     ];
 
-    // Initial Default Packing Items List (Incorporating image items + winter Barcelona tips)
-    const defaultPackingCategories = [
-      {
-        id: 'cat-docs',
-        title: '📄 重要證件與金融',
-        items: [
-          { id: 'p1', label: '護照', desc: '確認效期需在 6 個月以上', badge: '最重要', badgeType: 'red' },
-          { id: 'p2', label: '財力證明、申根保險英文保單、電子機票、訂房收據', desc: '建議列印紙本備查 ＋ 手機存 PDF 離線檔' },
-          { id: 'p3', label: 'ETIAS 申辦確認', desc: '預計 2026 第四季開放申請，出發前務必至官網確認' },
-          { id: 'p4', label: '入境卡', desc: '隨身準備筆，若需要可於機上填寫' },
-          { id: 'p5', label: '歐元現金 💵', desc: '建議大鈔小鈔分開放置，勿全放在同一夾層' },
-          { id: 'p6', label: '海外高回饋信用卡', desc: '開通海外刷卡與 PIN 碼，支援 Apple Pay / 感應支付' }
-        ]
-      },
-      {
-        id: 'cat-3c',
-        title: '📱 3C 與攝影裝備',
-        items: [
-          { id: 'p7', label: 'eSIM / 上網卡', desc: '出發前先完成安裝設定與掃描 QR code' },
-          { id: 'p8', label: '手機充電器、歐規萬用轉接插頭', desc: '西班牙為 220V 雙圓孔插座 (Type C/F)', badge: '確認220V', badgeType: 'amber' },
-          { id: 'p9', label: '行動電源', desc: '機身必須有清楚 Wh / mAh 容量標示', badge: '必放手提', badgeType: 'blue' },
-          { id: 'p10', label: '運動相機 & 配件', desc: '備用鋰電池必須隨身手提；進諾坎普球場建議帶短自拍棒', badge: '必放手提', badgeType: 'blue' },
-          { id: 'p11', label: '離子夾 / 直髮梳', desc: '確認是否支援 100-240V 國際電壓；嚴禁攜帶無線鋰電池式離子夾登機', badge: '注意電壓', badgeType: 'amber' }
-        ]
-      },
-      {
-        id: 'cat-toiletries',
-        title: '🧴 盥洗與個人保養',
-        items: [
-          { id: 'p12', label: '洗髮精、潤絲精', desc: '歐洲公寓多不提供個人沐浴備品，建議自備小瓶裝' },
-          { id: 'p13', label: '洗面乳', desc: '清潔個人用品' },
-          { id: 'p14', label: '護手霜', desc: '西班牙冬季氣候較乾燥，強烈建議隨身攜帶' },
-          { id: 'p15', label: '牙線', desc: '個人衛生備品' },
-          { id: 'p16', label: '漱口錠', desc: '長途飛機上刷新口氣極便利' },
-          { id: 'p17', label: '個人牙刷、牙膏', desc: '響應環保歐洲飯店多不提供拋棄式牙刷' },
-          { id: 'p18', label: '保濕乳液、護唇膏', desc: '冬天地中海氣候乾燥必備' }
-        ]
-      },
-      {
-        id: 'cat-clothes',
-        title: '🧥 衣物與穿搭配件',
-        items: [
-          { id: 'p19', label: '個人換洗衣物', desc: '12 月巴塞隆納溫差大 (約 8–15°C)，建議洋蔥式穿搭 ＋ 防風保暖外套' },
-          { id: 'p20', label: '墨鏡 🕶️', desc: '地中海冬季陽光依然刺眼好拍照' },
-          { id: 'p21', label: '髮箍 / 髮飾', desc: '個人造型與固定髮型' },
-          { id: 'p22', label: '好走耐操的運動鞋', desc: '巴塞隆納舊城區皆為石子路，每日萬步起跳' },
-          { id: 'p23', label: '保暖圍巾 / 輕便毛帽', desc: '早晚風大防頭痛' }
-        ]
-      },
-      {
-        id: 'cat-misc',
-        title: '🎒 實用雜物與防盜裝備',
-        items: [
-          { id: 'p24', label: '個人常備藥物', desc: '感冒藥、腸胃藥、止痛藥、暈車藥等' },
-          { id: 'p25', label: '口罩', desc: '長途機艙內防乾燥與衛生保濕' },
-          { id: 'p26', label: '購物袋 (大、小皆準備)', desc: '歐洲超市袋子需額外收費，自備環保袋方便購物' },
-          { id: 'p27', label: '瑞士刀', desc: '⚠️ 絕對不可隨身攜帶！', badge: '必放托運', badgeType: 'red' },
-          { id: 'p28', label: '防盜斜肩包 / 手機掛繩', desc: '巴塞隆納市區與地鐵站必備防扒神器', badge: '防盜必備', badgeType: 'green' },
-          { id: 'p29', label: '頸枕 / 眼罩', desc: '長途飛行與轉機好睡神器' }
-        ]
-      }
+    const defaultChecklistItems = [
+      { id: 'item-1', title: '護照 (💥最重要的證件，請確認6個月以上有效期)', cat: '證件文件', checked: false },
+      { id: 'item-2', title: '財力證明／申根保險證明／電子機票／訂房收據列印本', cat: '證件文件', checked: false },
+      { id: 'item-3', title: 'ETIAS 申辦證明 (預計 2026 第四季開放申請，請關注最新消息)', cat: '證件文件', checked: false },
+      { id: 'item-4', title: '西班牙入境卡 (若有規定需備妥)', cat: '證件文件', checked: false },
+      { id: 'item-5', title: '歐元現金 💵 (預計準備約 €300，約台幣 NT$10,000，其餘刷卡)', cat: '證件文件', checked: false },
+      { id: 'item-6', title: '海外高回饋信用卡 (建議攜帶 2-3 張不同發卡銀行/Master/Visa)', cat: '證件文件', checked: false },
+      { id: 'item-7', title: '歐洲 eSIM 或實體 SIM 卡 (開通漫遊與流量確認)', cat: '電子設備', checked: false },
+      { id: 'item-8', title: '手機充電線與歐規圓頭萬用轉接頭 (Type C / 雙圓柱頭)', cat: '電子設備', checked: false },
+      { id: 'item-9', title: '行動電源 (⚠️必須有清楚 Wh 容量標示，限隨身登機攜帶)', cat: '電子設備', checked: false },
+      { id: 'item-10', title: '運動相機 (Insta360 / GoPro / 配件與記憶卡)', cat: '電子設備', checked: false },
+      { id: 'item-11', title: '美髮離子夾／吹風機 (注意雙電壓 220V 支援)', cat: '電子設備', checked: false },
+      { id: 'item-12', title: '旅行組洗髮精／潤絲精 (歐洲部分公寓無提供)', cat: '盥洗保養', checked: false },
+      { id: 'item-13', title: '洗面乳／卸妝用品', cat: '盥洗保養', checked: false },
+      { id: 'item-14', title: '高保濕護手霜與乳液 (西班牙 12 月氣候乾燥)', cat: '盥洗保養', checked: false },
+      { id: 'item-15', title: '牙膏、牙刷與牙線 (響應環保多數飯店不主動提供)', cat: '盥洗保養', checked: false },
+      { id: 'item-16', title: '漱口錠 / 漱口水 (長途飛機上清潔使用)', cat: '盥洗保養', checked: false },
+      { id: 'item-17', title: '個人保暖衣物 (12月氣溫約 8–15°C，採洋蔥式穿搭＋防風保暖外套)', cat: '衣物配件', checked: false },
+      { id: 'item-18', title: '太陽眼鏡 🕶️ (地中海陽光依然充沛耀眼)', cat: '衣物配件', checked: false },
+      { id: 'item-19', title: '髮箍 / 髮圈 / 帽子', cat: '衣物配件', checked: false },
+      { id: 'item-20', title: '備用口罩', cat: '衣物配件', checked: false },
+      { id: 'item-21', title: '防盜貼身斜肩包／手機防盜掛繩 (防範舊城區扒手)', cat: '衣物配件', checked: false },
+      { id: 'item-22', title: '常備個人藥物 (感冒藥、止痛藥、腸胃藥、暈車藥)', cat: '其他小物', checked: false },
+      { id: 'item-23', title: '環保購物袋 (大、小均備，歐洲超市塑膠袋皆需額外付費)', cat: '其他小物', checked: false },
+      { id: 'item-24', title: '多功能瑞士刀 (⚠️務必放在托運行李，切勿隨身登機！)', cat: '其他小物', checked: false }
     ];
 
-    /* ==========================================================================
-       STATE & LOCAL STORAGE MANAGEMENT
-       ========================================================================== */
-    
-    let activeTagFilter = 'all';
-    let activeDateFilter = 'all';
+    let activeDate = 'all';
+    let activeTag = 'all';
     let searchQuery = '';
-    let packingState = {}; // Stores checked boolean for item ids
-    let customItems = [];  // Custom items added by user
+    let resetTimer = null;
+    let resetConfirmState = false;
 
-    // Load state on page initialize
-    function initStorage() {
-      const savedPacking = localStorage.getItem('bcn_packing_state');
-      if (savedPacking) {
-        try {
-          packingState = JSON.parse(savedPacking);
-        } catch(e) { packingState = {}; }
+    function loadChecklistState() {
+      try {
+        const saved = localStorage.getItem('bcn_packing_checklist_v2');
+        if (saved) return JSON.parse(saved);
+      } catch (e) {
+        console.warn('localStorage not accessible:', e);
       }
-      
-      const savedCustom = localStorage.getItem('bcn_custom_items');
-      if (savedCustom) {
-        try {
-          customItems = JSON.parse(savedCustom);
-        } catch(e) { customItems = []; }
+      return defaultChecklistItems;
+    }
+
+    function saveChecklistState(items) {
+      try {
+        localStorage.setItem('bcn_packing_checklist_v2', JSON.stringify(items));
+      } catch (e) {
+        console.warn('localStorage write failed:', e);
       }
     }
 
-    function savePackingState() {
-      localStorage.setItem('bcn_packing_state', JSON.stringify(packingState));
+    let checklistItems = loadChecklistState();
+
+    window.onload = function() {
+      renderItinerary();
+      renderChecklist();
+    };
+
+    function switchTab(tabIndex) {
+      [1, 2, 3].forEach(i => {
+        const content = document.getElementById(`tab-content-${i}`);
+        const btn = document.getElementById(`tab-btn-${i}`);
+        if (i === tabIndex) {
+          content.classList.remove('hidden');
+          btn.className = "flex-1 sm:flex-initial px-4 py-2 rounded-lg transition-all duration-200 shadow-sm bg-white text-terra font-semibold";
+        } else {
+          content.classList.add('hidden');
+          btn.className = "flex-1 sm:flex-initial px-4 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:text-charcoal";
+        }
+      });
     }
 
-    function saveCustomItems() {
-      localStorage.setItem('bcn_custom_items', JSON.stringify(customItems));
-    }
-
-    /* ==========================================================================
-       TAB & UI INTERACTION FUNCTIONS
-       ========================================================================== */
-
-    function switchTab(tab) {
-      const itinSec = document.getElementById('tab-itinerary');
-      const packSec = document.getElementById('tab-packing');
-      const itinBtn = document.getElementById('tab-itinerary-btn');
-      const packBtn = document.getElementById('tab-packing-btn');
-
-      if (tab === 'itinerary') {
-        itinSec.classList.remove('hidden');
-        packSec.classList.add('hidden');
-        
-        itinBtn.className = "tab-btn flex-1 sm:flex-initial px-5 py-2 rounded-lg font-medium text-sm text-white bg-terracotta shadow-xs flex items-center justify-center gap-2";
-        packBtn.className = "tab-btn flex-1 sm:flex-initial px-5 py-2 rounded-lg font-medium text-sm text-gray-600 hover:text-charcoal flex items-center justify-center gap-2";
+    function toggleGuideCard() {
+      const cardBody = document.getElementById('guide-card-body');
+      const toggleBtn = document.getElementById('guide-toggle-btn');
+      if (cardBody.classList.contains('hidden')) {
+        cardBody.classList.remove('hidden');
+        toggleBtn.innerText = '收合指南 ▲';
       } else {
-        itinSec.classList.add('hidden');
-        packSec.classList.remove('hidden');
-
-        packBtn.className = "tab-btn flex-1 sm:flex-initial px-5 py-2 rounded-lg font-medium text-sm text-white bg-terracotta shadow-xs flex items-center justify-center gap-2";
-        itinBtn.className = "tab-btn flex-1 sm:flex-initial px-5 py-2 rounded-lg font-medium text-sm text-gray-600 hover:text-charcoal flex items-center justify-center gap-2";
+        cardBody.classList.add('hidden');
+        toggleBtn.innerText = '展開指南 ▼';
       }
     }
 
-    function toggleTransportDetails() {
-      const details = document.getElementById('transport-details');
-      const arrow = document.getElementById('transport-arrow');
-      const text = document.getElementById('transport-toggle-text');
-
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        arrow.classList.add('rotate-180');
-        text.innerText = '收合 機場 ⇄ 住宿 交通攻略';
-      } else {
-        details.classList.add('hidden');
-        arrow.classList.remove('rotate-180');
-        text.innerText = '查看 機場 ⇄ 住宿 交通攻略';
+    function copyAddress(address) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = address;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('📋 已將 Suite Home Sagrada Familia 地址複製到剪貼簿！');
+      } catch (err) {
+        showToast('⚠️ 複製失敗，請手動複製地址');
       }
+      document.body.removeChild(tempInput);
     }
 
-    function copyAddress() {
-      const addr = "Avinguda de Gaudí, 28, Eixample, 08025 Barcelona, Spain";
-      // execCommand fallback for iframe compatibility
-      const dummy = document.createElement("textarea");
-      document.body.appendChild(dummy);
-      dummy.value = addr;
-      dummy.select();
-      document.execCommand("copy");
-      document.body.removeChild(dummy);
-
-      showToast("已成功複製公寓地址！");
-    }
-
-    function showToast(msg) {
+    function showToast(message, icon = 'ℹ️') {
       const toast = document.getElementById('toast');
-      const toastMsg = document.getElementById('toast-message');
-      toastMsg.innerText = msg;
-      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
-      toast.classList.add('opacity-100', 'translate-y-0');
-
+      const msgSpan = document.getElementById('toast-msg');
+      const iconSpan = document.getElementById('toast-icon');
+      msgSpan.innerText = message;
+      iconSpan.innerText = icon;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
       setTimeout(() => {
-        toast.classList.remove('opacity-100', 'translate-y-0');
-        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
-      }, 2500);
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3200);
     }
 
-    /* ==========================================================================
-       ITINERARY RENDERING & FILTERING
-       ========================================================================== */
-
-    function setTagFilter(tag) {
-      activeTagFilter = tag;
-      document.querySelectorAll('.tag-filter-btn').forEach(btn => {
-        if (btn.getAttribute('data-tag') === tag) {
-          btn.className = "tag-filter-btn active text-xs px-3 py-1.5 rounded-lg border font-medium transition bg-charcoal text-white border-charcoal";
-        } else {
-          btn.className = "tag-filter-btn text-xs px-3 py-1.5 rounded-lg border border-sand bg-white text-gray-600 font-medium hover:border-terracotta transition";
-        }
+    function filterDate(dateStr) {
+      activeDate = dateStr;
+      document.querySelectorAll('.date-chip').forEach(btn => {
+        btn.className = "date-chip px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200";
       });
+      const activeBtn = document.getElementById(`date-chip-${dateStr}`);
+      if (activeBtn) {
+        activeBtn.className = "date-chip active px-3 py-1.5 rounded-full font-medium transition whitespace-nowrap bg-terra text-white shadow-xs";
+      }
       renderItinerary();
     }
 
-    function setDateFilter(date) {
-      activeDateFilter = date;
-      document.querySelectorAll('.date-filter-btn').forEach(btn => {
-        if (btn.getAttribute('data-date') === date) {
-          btn.className = "date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-terracotta text-white shadow-xs";
-        } else {
-          btn.className = "date-filter-btn shrink-0 text-xs px-3.5 py-1.5 rounded-full font-medium transition bg-white border border-sand text-gray-600 hover:border-terracotta";
-        }
+    function filterTag(tagStr) {
+      activeTag = tagStr;
+      document.querySelectorAll('.tag-chip').forEach(btn => {
+        btn.className = "tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-stone-100 text-stone-600 hover:bg-stone-200";
       });
+      const activeBtn = document.getElementById(`tag-chip-${tagStr}`);
+      if (activeBtn) {
+        activeBtn.className = "tag-chip px-2.5 py-1 rounded-lg font-medium transition whitespace-nowrap bg-olive text-white";
+      }
       renderItinerary();
     }
 
-    function filterItinerary() {
-      searchQuery = document.getElementById('search-input').value.toLowerCase().trim();
+    function handleSearch() {
+      searchQuery = document.getElementById('itinerary-search').value.toLowerCase().trim();
       renderItinerary();
     }
 
     function renderItinerary() {
-      const container = document.getElementById('itinerary-list-container');
+      const container = document.getElementById('days-container');
       container.innerHTML = '';
 
-      let matchedDaysCount = 0;
-
-      itineraryData.forEach(day => {
-        // Date filter check
-        if (activeDateFilter !== 'all' && day.dateCode !== activeDateFilter) {
-          return;
+      const filteredDays = itineraryData.filter(d => {
+        if (activeDate !== 'all' && d.date !== activeDate) return false;
+        if (activeTag !== 'all' && d.tag !== activeTag) return false;
+        if (searchQuery !== '') {
+          const matchedEvent = d.events.some(e =>
+            e.name.toLowerCase().includes(searchQuery) ||
+            (e.note && e.note.toLowerCase().includes(searchQuery)) ||
+            (e.route && e.route.toLowerCase().includes(searchQuery))
+          );
+          if (!d.title.toLowerCase().includes(searchQuery) && !matchedEvent) return false;
         }
+        return true;
+      });
 
-        // Filter items within day
-        const filteredItems = day.items.filter(item => {
-          // Tag filter
-          if (activeTagFilter !== 'all' && item.tag !== activeTagFilter) {
-            return false;
-          }
-          // Search query filter
-          if (searchQuery) {
-            const matchTitle = item.title.toLowerCase().includes(searchQuery);
-            const matchNote = item.note.toLowerCase().includes(searchQuery);
-            const matchTime = item.time.toLowerCase().includes(searchQuery);
-            if (!matchTitle && !matchNote && !matchTime) return false;
-          }
-          return true;
-        });
+      if (filteredDays.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white p-8 rounded-2xl border border-stone-200 text-center text-stone-500 space-y-2">
+            <div class="text-3xl">🔍</div>
+            <div class="font-bold text-stone-700">找不到符合條件的行程內容</div>
+            <div class="text-xs">請嘗試切換日期、類別標籤或更換搜尋關鍵字</div>
+          </div>
+        `;
+        return;
+      }
 
-        if (filteredItems.length === 0) return;
-        matchedDaysCount++;
-
-        // Render Day Block Card
+      filteredDays.forEach(day => {
         const dayCard = document.createElement('div');
-        dayCard.className = 'bg-white rounded-2xl p-5 border border-sand shadow-sm space-y-4';
+        dayCard.className = "bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden transition hover:shadow-md";
 
-        let itemsHtml = filteredItems.map(item => {
-          // Transport pills html
-          let transportHtml = '';
-          if (item.transport && item.transport.length > 0) {
-            transportHtml = item.transport.map(tKey => {
-              const pill = metroPills[tKey];
-              if (!pill) return '';
-              return `<span class="inline-flex items-center text-[10px] font-bold px-2 py-0.5 rounded ${pill.bg} ${pill.text}">${pill.name}</span>`;
-            }).join(' ');
-          }
-
-          // Tag badge HTML
-          let tagBadge = '';
-          if (item.tag === '已預約') {
-            tagBadge = `<span class="bg-red-50 text-red-600 border border-red-200 text-[10px] font-bold px-2 py-0.5 rounded-full">🎫 已預約</span>`;
-          } else if (item.tag === '美食') {
-            tagBadge = `<span class="bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full">🍽️ 美食</span>`;
-          } else if (item.tag === '彈性') {
-            tagBadge = `<span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">✨ 彈性</span>`;
-          }
-
-          const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery || item.title)}`;
-
-          return `
-            <div class="p-3.5 bg-warmbg/60 rounded-xl border border-sand hover:border-terracotta/40 transition space-y-2">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-xs font-bold px-2 py-1 bg-sand text-charcoal rounded-md">${item.time}</span>
-                  <h4 class="text-sm sm:text-base font-bold text-charcoal">${item.title}</h4>
-                  ${tagBadge}
+        let eventsHTML = day.events.map(event => {
+          if (event.type === 'transit') {
+            return `
+              <div class="p-3 my-2 bg-stone-50 rounded-xl border border-stone-200/70 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded font-bold bg-m-taxi text-[11px]">🚌 交通移動</span>
+                  <span class="font-semibold text-stone-800">${event.route}</span>
                 </div>
-                <div class="flex items-center gap-2 self-start sm:self-auto">
-                  <div class="flex items-center gap-1">${transportHtml}</div>
-                  <a href="${gmapsUrl}" target="_blank" class="text-[11px] text-terracotta hover:text-terracotta-hover font-semibold bg-white border border-sand px-2 py-1 rounded-md flex items-center gap-1 shrink-0">
-                    📍 導航
-                  </a>
+                <div class="flex items-center gap-3 text-stone-500 text-[11px] shrink-0">
+                  <span>⏱️ ${event.duration}</span>
+                  <span class="font-bold text-terra">${event.cost}</span>
                 </div>
               </div>
-              <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">${item.note}</p>
-            </div>
-          `;
+            `;
+          } else {
+            const mapsBtn = event.maps ? `
+              <a href="${event.maps}" target="_blank" rel="noopener" class="text-[11px] text-terra hover:underline flex items-center gap-0.5">
+                📍 地圖
+              </a>
+            ` : '';
+
+            const badgeHTML = event.badge ? `
+              <span class="text-[10px] px-2 py-0.5 rounded-full font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                ${event.badge}
+              </span>
+            ` : '';
+
+            return `
+              <div class="py-3 border-b border-stone-100 last:border-b-0 space-y-1">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-terra text-xs w-16 shrink-0">${event.time}</span>
+                    <h4 class="font-bold text-charcoal text-sm">${event.name}</h4>
+                    ${badgeHTML}
+                  </div>
+                  <div class="flex items-center gap-3 pl-18 sm:pl-0 text-xs">
+                    <span class="font-semibold text-stone-600">${event.cost}</span>
+                    ${mapsBtn}
+                  </div>
+                </div>
+                ${event.note ? `<p class="text-xs text-stone-500 pl-18 sm:pl-18 leading-relaxed">${event.note}</p>` : ''}
+              </div>
+            `;
+          }
         }).join('');
 
         dayCard.innerHTML = `
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-sand gap-1">
-            <div>
-              <h3 class="text-base sm:text-lg font-bold text-terracotta">${day.dayTitle}</h3>
-              <p class="text-xs text-gray-500">${day.summary}</p>
+          <div class="bg-warmbg px-5 py-3.5 border-b border-stone-200 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+              <span class="bg-terra text-white text-xs font-bold px-2.5 py-1 rounded-lg">Day ${day.day}</span>
+              <h3 class="font-bold text-charcoal text-base">${day.date} (${day.weekday}) ${day.title}</h3>
             </div>
-            <span class="text-xs text-gray-400 font-medium">${filteredItems.length} 個行程項目</span>
           </div>
-          <div class="space-y-3">
-            ${itemsHtml}
+          <div class="p-4 sm:p-5">
+            ${eventsHTML}
           </div>
         `;
 
         container.appendChild(dayCard);
       });
-
-      if (matchedDaysCount === 0) {
-        container.innerHTML = `
-          <div class="text-center py-12 bg-white rounded-2xl border border-sand">
-            <p class="text-2xl mb-2">🔍</p>
-            <p class="text-sm font-semibold text-gray-600">沒有找到符合條件的行程項目</p>
-            <p class="text-xs text-gray-400 mt-1">請嘗試調整搜尋關鍵字或篩選標籤</p>
-          </div>
-        `;
-      }
     }
 
-    /* ==========================================================================
-       PACKING CHECKLIST LOGIC
-       ========================================================================== */
-
-    function renderPackingList() {
-      const container = document.getElementById('packing-categories-container');
+    function renderChecklist() {
+      const container = document.getElementById('checklist-categories-container');
       container.innerHTML = '';
 
-      let totalCount = 0;
-      let checkedCount = 0;
+      const categories = ['證件文件', '電子設備', '盥洗保養', '衣物配件', '其他小物'];
+      let totalItems = checklistItems.length;
+      let checkedCount = checklistItems.filter(i => i.checked).length;
+      let percentage = totalItems > 0 ? Math.round((checkedCount / totalItems) * 100) : 0;
 
-      // 1. Render Preset Categories
-      defaultPackingCategories.forEach(cat => {
+      document.getElementById('packing-count-text').innerText = `已完成 ${checkedCount} / ${totalItems} 項`;
+      document.getElementById('packing-progress-bar').style.width = `${percentage}%`;
+      document.getElementById('packing-percentage-text').innerText = `${percentage}%`;
+
+      categories.forEach(cat => {
+        const catItems = checklistItems.filter(i => i.cat === cat);
+        if (catItems.length === 0) return;
+
         const catCard = document.createElement('div');
-        catCard.className = 'bg-white rounded-2xl p-5 border border-sand shadow-sm space-y-3';
+        catCard.className = "bg-white p-4 sm:p-5 rounded-2xl border border-stone-200 shadow-sm space-y-3";
 
-        const itemsHtml = cat.items.map(item => {
-          totalCount++;
-          const isChecked = !!packingState[item.id];
-          if (isChecked) checkedCount++;
-
-          let badgeHtml = '';
-          if (item.badge) {
-            let colorClasses = 'bg-gray-100 text-gray-700';
-            if (item.badgeType === 'red') colorClasses = 'bg-red-100 text-red-700 font-bold';
-            if (item.badgeType === 'amber') colorClasses = 'bg-amber-100 text-amber-800 font-bold';
-            if (item.badgeType === 'blue') colorClasses = 'bg-blue-100 text-blue-700 font-bold';
-            if (item.badgeType === 'green') colorClasses = 'bg-emerald-100 text-emerald-800 font-bold';
-            badgeHtml = `<span class="text-[10px] px-2 py-0.5 rounded ${colorClasses} shrink-0">${item.badge}</span>`;
-          }
-
+        let itemsHTML = catItems.map(item => {
           return `
-            <label class="flex items-start gap-3 p-3 rounded-xl border border-sand hover:bg-warmbg/50 cursor-pointer transition ${isChecked ? 'bg-warmbg/70 opacity-60' : 'bg-white'}">
-              <input type="checkbox" onchange="togglePackItem('${item.id}')" ${isChecked ? 'checked' : ''} class="mt-1 w-4 h-4 text-terracotta rounded border-gray-300 focus:ring-terracotta" />
-              <div class="flex-1 space-y-0.5">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-xs sm:text-sm font-semibold text-charcoal ${isChecked ? 'line-through text-gray-400' : ''}">${item.label}</span>
-                  ${badgeHtml}
-                </div>
-                ${item.desc ? `<p class="text-xs text-gray-500">${item.desc}</p>` : ''}
-              </div>
-            </label>
+            <div class="flex items-center justify-between p-2 rounded-xl hover:bg-warmbg transition">
+              <label class="flex items-center gap-3 cursor-pointer flex-1 select-none">
+                <input type="checkbox" onchange="toggleItem('${item.id}')" ${item.checked ? 'checked' : ''} class="w-4 h-4 text-terra rounded border-stone-300 focus:ring-terra accent-terra cursor-pointer">
+                <span class="text-xs sm:text-sm font-medium ${item.checked ? 'line-through text-stone-400' : 'text-charcoal'}">${item.title}</span>
+              </label>
+              ${item.isCustom ? `
+                <button onclick="deleteCustomItem('${item.id}')" title="刪除自訂項目" class="text-stone-400 hover:text-red-500 text-xs px-2 py-1 rounded transition">
+                  ✕
+                </button>
+              ` : ''}
+            </div>
           `;
         }).join('');
 
         catCard.innerHTML = `
-          <h3 class="text-base font-bold text-charcoal pb-2 border-b border-sand">${cat.title}</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-            ${itemsHtml}
+          <h3 class="font-bold text-sm text-charcoal border-b border-stone-100 pb-2 flex items-center gap-2">
+            <span>📌</span> ${cat}
+            <span class="text-xs font-normal text-stone-400">(${catItems.filter(i => i.checked).length}/${catItems.length})</span>
+          </h3>
+          <div class="space-y-1">
+            ${itemsHTML}
           </div>
         `;
 
         container.appendChild(catCard);
       });
+    }
 
-      // 2. Render Custom Items Category (if any)
-      if (customItems.length > 0) {
-        const customCard = document.createElement('div');
-        customCard.className = 'bg-white rounded-2xl p-5 border border-sand shadow-sm space-y-3';
-
-        const customItemsHtml = customItems.map(item => {
-          totalCount++;
-          const isChecked = !!packingState[item.id];
-          if (isChecked) checkedCount++;
-
-          return `
-            <div class="flex items-center justify-between p-3 rounded-xl border border-sand ${isChecked ? 'bg-warmbg/70 opacity-60' : 'bg-white'}">
-              <label class="flex items-center gap-3 cursor-pointer flex-1">
-                <input type="checkbox" onchange="togglePackItem('${item.id}')" ${isChecked ? 'checked' : ''} class="w-4 h-4 text-terracotta rounded border-gray-300 focus:ring-terracotta" />
-                <span class="text-xs sm:text-sm font-semibold text-charcoal ${isChecked ? 'line-through text-gray-400' : ''}">${item.label}</span>
-              </label>
-              <button onclick="deleteCustomItem('${item.id}')" class="text-xs text-gray-400 hover:text-red-500 p-1">
-                ✕
-              </button>
-            </div>
-          `;
-        }).join('');
-
-        customCard.innerHTML = `
-          <h3 class="text-base font-bold text-terracotta pb-2 border-b border-sand">✨ 自訂補充電物 (${customItems.length})</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-            ${customItemsHtml}
-          </div>
-        `;
-
-        container.appendChild(customCard);
+    function toggleItem(id) {
+      const item = checklistItems.find(i => i.id === id);
+      if (item) {
+        item.checked = !item.checked;
+        saveChecklistState(checklistItems);
+        renderChecklist();
       }
-
-      // Update Progress Bar
-      const percentage = totalCount === 0 ? 0 : Math.round((checkedCount / totalCount) * 100);
-      document.getElementById('packing-progress-text').innerText = `${checkedCount} / ${totalCount} 項 (${percentage}%)`;
-      document.getElementById('packing-progress-bar').style.width = `${percentage}%`;
     }
 
-    function togglePackItem(id) {
-      packingState[id] = !packingState[id];
-      savePackingState();
-      renderPackingList();
+    function handleResetClick() {
+      const resetBtn = document.getElementById('reset-checklist-btn');
+      if (!resetConfirmState) {
+        resetConfirmState = true;
+        resetBtn.innerText = '⚠️ 確定重置？再點一次';
+        resetBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white hover:bg-red-600 transition shadow-xs flex items-center gap-1 animate-pulse";
+        resetTimer = setTimeout(() => {
+          revertResetButton();
+        }, 3500);
+      } else {
+        clearTimeout(resetTimer);
+        checklistItems.forEach(i => i.checked = false);
+        saveChecklistState(checklistItems);
+        renderChecklist();
+        revertResetButton();
+        showToast('已重置所有勾選狀態！', '🔄');
+      }
     }
 
-    function resetPackingList() {
-      if (confirm('確定要重設所有行李項目的勾選狀態嗎？')) {
-        packingState = {};
-        savePackingState();
-        renderPackingList();
-        showToast('已重設所有行李勾選！');
+    function revertResetButton() {
+      resetConfirmState = false;
+      const resetBtn = document.getElementById('reset-checklist-btn');
+      if (resetBtn) {
+        resetBtn.innerText = '🔄 重置所有勾選';
+        resetBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-stone-100 text-stone-600 hover:bg-stone-200 transition border border-stone-300 shadow-xs flex items-center gap-1";
       }
     }
 
     function addCustomItem() {
       const input = document.getElementById('custom-item-input');
-      const val = input.value.trim();
-      if (!val) return;
+      const catSelect = document.getElementById('custom-item-category');
+      const errorMsg = document.getElementById('custom-input-error');
+      const titleText = input.value.trim();
+      const selectedCat = catSelect.value;
 
-      const newItem = {
-        id: 'custom_' + Date.now(),
-        label: val
-      };
+      if (!titleText) {
+        errorMsg.classList.remove('hidden');
+        setTimeout(() => errorMsg.classList.add('hidden'), 3000);
+        return;
+      }
 
-      customItems.push(newItem);
-      saveCustomItems();
+      errorMsg.classList.add('hidden');
+      checklistItems.push({
+        id: 'custom-' + Date.now(),
+        title: titleText,
+        cat: selectedCat,
+        checked: false,
+        isCustom: true
+      });
+      saveChecklistState(checklistItems);
       input.value = '';
-      renderPackingList();
-      showToast('已成功新增自訂項目！');
+      renderChecklist();
+      showToast(`已新增「${titleText}」至【${selectedCat}】！`, '➕');
     }
 
     function deleteCustomItem(id) {
-      customItems = customItems.filter(item => item.id !== id);
-      delete packingState[id];
-      saveCustomItems();
-      savePackingState();
-      renderPackingList();
+      checklistItems = checklistItems.filter(i => i.id !== id);
+      saveChecklistState(checklistItems);
+      renderChecklist();
+      showToast('已刪除自訂行李項目', '🗑️');
     }
 
-    /* ==========================================================================
-       INITIALIZATION
-       ========================================================================== */
-    window.onload = function() {
-      initStorage();
-      renderItinerary();
-      renderPackingList();
-    };
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('custom-item-input');
+      if (input) {
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') addCustomItem();
+        });
+      }
+      const dateBar = document.getElementById('date-filter-bar');
+      if (dateBar) {
+        dateBar.addEventListener('wheel', (e) => {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            dateBar.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+      }
+    });
   </script>
 </body>
 </html>
