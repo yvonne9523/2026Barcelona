@@ -19,7 +19,6 @@
   button{font:inherit;cursor:pointer}
   a{color:var(--terra);text-decoration:none} a:hover{text-decoration:underline}
   .wrap{max-width:1000px;margin:0 auto;padding:0 16px}
-  /* header */
   header.top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   .top-in{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 0}
   .brand{display:flex;align-items:center;gap:10px}
@@ -37,14 +36,12 @@
   .pad{padding:16px 18px}
   h2{margin:0 0 4px;font-size:18px} h3{margin:0 0 8px;font-size:15px}
   .muted{color:var(--mute)} .small{font-size:12px}
-  /* tables */
   table{width:100%;border-collapse:collapse;font-size:13px}
   th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
   th{background:var(--bg);font-size:12px;color:var(--mute);font-weight:700}
   tr:last-child td{border-bottom:0}
   .tbl-wrap{overflow-x:auto}
   tr.click{cursor:pointer} tr.click:hover td{background:var(--terra-l)}
-  /* chips */
   .chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;align-items:center}
   .chip{border:0;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;background:#F1EEE9;color:#57534E;white-space:nowrap}
   .chip:hover{background:#E7E2DB}
@@ -55,7 +52,6 @@
   .sbox{position:relative;flex:1;min-width:200px} .sbox span{position:absolute;left:10px;top:7px;font-size:13px}
   .filters{display:flex;flex-direction:column;gap:10px;padding:14px 16px}
   .frow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-  /* day card */
   .day{overflow:hidden;scroll-margin-top:120px}
   .day.today{outline:2px solid var(--terra)}
   .day-head{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:0;background:linear-gradient(90deg,var(--terra-l),#fff 60%);padding:14px 16px;border-bottom:1px solid transparent}
@@ -72,7 +68,6 @@
   .pace-light{background:var(--olive-l);color:var(--olive-d)} .pace-mid{background:var(--amber-l);color:var(--amber)} .pace-busy{background:var(--red-l);color:var(--red)}
   .alert{margin:12px 0 4px;padding:10px 12px;border-radius:12px;background:var(--amber-l);border:1px solid #FCD34D;color:#78350F;font-size:13px}
   .alert+.alert{margin-top:8px}
-  /* timeline */
   .tl{margin-top:8px}
   .tl-item{display:grid;grid-template-columns:62px 14px 1fr;gap:8px;position:relative}
   .tl-time{font-size:12px;font-weight:700;color:var(--terra);padding-top:11px;text-align:right;line-height:1.25}
@@ -103,7 +98,6 @@
   .mode{font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;color:#fff;background:#6B7280}
   .m-metro{background:#0072BC}.m-walk{background:#6B7280}.m-taxi{background:#222;color:#FABB00}.m-train{background:var(--olive)}.m-bus{background:#D94E3B}
   .tr-body .meta{color:var(--mute);margin-left:auto}
-  /* guide */
   .grid{display:grid;gap:12px} .g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))} .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .opt{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff}
   .opt.best{border-color:#E9B7A4;background:var(--terra-l)}
@@ -111,13 +105,11 @@
   .btn:hover{border-color:var(--terra);color:var(--terra);text-decoration:none}
   .btn.pri{background:var(--terra);border-color:var(--terra);color:#fff} .btn.pri:hover{background:var(--terra-d);color:#fff}
   .gbody{display:none} .gbody.open{display:block}
-  /* budget */
   .hero{background:linear-gradient(135deg,var(--terra),var(--terra-d));color:#fff;padding:22px;border-radius:var(--radius);box-shadow:var(--shadow)}
   .hero .big{font-size:34px;font-weight:800;color:#FDE68A;line-height:1.1}
   .hero input{width:70px;padding:4px 8px;border-radius:8px;border:0;font:inherit;font-weight:700;color:var(--ink)}
   .sum-row{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
   ul.clean{margin:8px 0 0;padding-left:18px;font-size:12.5px;color:#57534E} ul.clean li{margin:2px 0}
-  /* checklist */
   .bar{height:12px;background:#F1EEE9;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
   .bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--terra),#F59E0B);transition:width .3s}
   .row-item{display:flex;align-items:center;gap:10px;padding:8px 6px;border-radius:10px}
@@ -164,7 +156,6 @@
 
 <main class="wrap">
 
-<!-- ============ TAB 1 ============ -->
 <section class="tab on stack" id="tab-1">
 
   <div class="card pad">
@@ -231,7 +222,6 @@
   <div id="days" class="stack"></div>
 </section>
 
-<!-- ============ TAB 2 ============ -->
 <section class="tab stack" id="tab-2">
   <div class="card pad">
     <div class="frow"><div><h2>✅ 預約與確認追蹤</h2><div class="small muted">勾選＝已完成。「已預約」項目依你的原行程預設為已勾選。</div></div>
@@ -241,12 +231,11 @@
   <div id="book-groups" class="stack"></div>
 </section>
 
-<!-- ============ TAB 3 ============ -->
 <section class="tab stack" id="tab-3">
   <div class="hero">
     <div class="small" style="opacity:.85;letter-spacing:.05em">LOCAL EXPENDITURE ESTIMATE PER PERSON</div>
     <h2 style="color:#fff;font-size:22px;margin:4px 0 8px">西班牙當地每人總花費預算</h2>
-    <p style="margin:0 0 12px;font-size:13px;opacity:.95">不含國際機票、住宿、諾坎普足球票與個人購物。以下金額由逐項明細自動加總。</p>
+    <p style="margin:0 0 12px;font-size:13px;opacity:.95">不含國際機票、住宿、諾坎普足球票與個人購物。米拉之家只看外觀，未計入門票。以下金額由逐項明細自動加總。</p>
     <div class="big" id="bud-total-eur">—</div>
     <div style="margin-top:6px;font-size:14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       匯率 1 EUR ≈ NT$ <input id="rate" type="number" min="20" max="60" step="0.1" value="35" aria-label="匯率">
@@ -271,7 +260,6 @@
   </div>
 </section>
 
-<!-- ============ TAB 4 ============ -->
 <section class="tab stack" id="tab-4">
   <div class="card pad stack">
     <div class="frow">
@@ -295,7 +283,6 @@
   <div id="pk-groups" class="stack"></div>
 </section>
 
-<!-- ============ TAB 5 ============ -->
 <section class="tab stack" id="tab-5">
   <div class="card pad">
     <h2>🔧 與原版的差異（Copilot 優化重點）</h2>
@@ -304,13 +291,14 @@
       <thead><tr><th>項目</th><th>原版</th><th>優化版</th><th>原因</th></tr></thead>
       <tbody>
         <tr><td>12/20 足球賽</td><td>寫 15:30 開賽</td><td>改為「開賽前 2 小時出發」，開賽時間標示待確認</td><td>FC Barcelona 官網目前顯示 12/20（日）、開賽時間 TBA</td></tr>
-        <tr><td>米拉之家</td><td>12/25 聖誕節</td><td>移到 12/21（與格拉西亞區同一帶）</td><td>聖誕節多數景點與店家休息，12/25 只保留已預約的 2 個點，也不再趕場</td></tr>
+        <tr><td>米拉之家</td><td>12/25 入內參觀（€28–38）</td><td>維持 12/25，改為只在外面看、不購票，已從預算與預約清單移除</td><td>你們不打算進場；官方資料顯示它 12/25 休館，但外觀可免費參觀</td></tr>
+        <tr><td>12/26 舊城區</td><td>12:00 午餐、14:00 兩館</td><td>畢卡索提前到 11:15，13:15 在 Puertecillo 午餐，之後 Hofmann 與 Moco</td><td>Puertecillo 週五至週日 13:00 才開；音樂宮、畢卡索、Moco 在 12/26 均開放</td></tr>
         <tr><td>12/22 看夕陽</td><td>19:00 才離開 MNAC</td><td>17:00 前就位、17:45 離開</td><td>12 月日落約 17:20–17:30</td></tr>
         <tr><td>12/24 平安夜</td><td>13:00 進桂爾宮、下午海港</td><td>桂爾宮改上午；中午前在波蓋利亞備好食材</td><td>12/24 多數店家中午後提早關門</td></tr>
         <tr><td>12/19 入境</td><td>07:45 搭 Taxi</td><td>08:15 搭 Taxi，並提醒 EES 生物辨識登記</td><td>首次入境申根需登記臉部＋指紋，預留排隊緩衝</td></tr>
         <tr><td>機場地鐵與 T-casual</td><td>機場票 €5.50；T-casual €1.25／趟</td><td>機場票 €5.90；T-casual €13／10 趟（≈€1.30）；機場站不可用</td><td>TMB 2026 官方票價</td></tr>
         <tr><td>ETIAS</td><td>預計 2026 第四季開放申請</td><td>目前尚未啟用、本次免申請</td><td>歐盟尚未公布啟用日期，最早 2027</td></tr>
-        <tr><td>預算</td><td>€605–755</td><td>由明細自動加總（見預算頁）</td><td>原門票明細實際加總為 €209–233，高於原寫的 €190–220</td></tr>
+        <tr><td>預算</td><td>€605–755</td><td>由明細自動加總（見預算頁）</td><td>原門票明細與實際加總不符；現已移除米拉之家門票，音樂宮改為官網票價 €20–24</td></tr>
         <tr><td>12/23 出城</td><td>二選一</td><td>仍二選一，附決策規則</td><td>依天氣與體力快速決定</td></tr>
         <tr><td>功能</td><td>依賴外部 CDN</td><td>單檔離線可用；新增預約追蹤、行程完成勾選、今日標示、倒數、列印</td><td>旅途中網路不穩也能開</td></tr>
       </tbody>
@@ -323,7 +311,6 @@
 <div id="toast"></div>
 
 <script>
-/* ================= helpers ================= */
 const $ = s => document.querySelector(s);
 const M = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
 const store = {
@@ -337,7 +324,6 @@ function toast(msg){
 }
 const fmt = n => Math.round(n).toLocaleString('en-US');
 
-/* ================= itinerary data ================= */
 const modeLabel = {metro:'🚇 地鐵', walk:'🚶 步行', taxi:'🚕 Taxi', train:'🚆 火車', bus:'🚌 巴士'};
 const paceLabel = {light:'輕鬆', mid:'適中', busy:'緊湊'};
 
@@ -349,7 +335,7 @@ const days = [
     {time:'18:40', type:'flight', name:'TPE T2 起飛 → 阿布達比 AUH（阿提哈德航空）', note:'預計 12/19 00:30 抵達阿布達比。', cost:'已付機票'}
    ]},
  { day:2, date:'12/19', wd:'六', title:'抵達日｜BCN T1 ＋ 聖安東尼市場 ＋ 適應時差', tags:['美食'], pace:'light',
-   hl:'入境 → 放行李 → 聖安東尼市場 → 補眠', 
+   hl:'入境 → 放行李 → 聖安東尼市場 → 補眠',
    alerts:['🛂 首次入境申根會做 EES 臉部＋指紋登記，排隊時間不一定，所以 Taxi 時間從 07:45 延後到 08:15；若很快出關可提早走。'],
    events:[
     {time:'06:55', type:'flight', name:'抵達巴塞隆納 BCN T1（AUH 02:35 起飛）', note:'完成入境與提領行李。', cost:'—'},
@@ -374,16 +360,15 @@ const days = [
     {time:'開賽時間待定', type:'spot', name:'諾坎普球場 Spotify Camp Nou｜西甲：巴塞隆納 vs 皇家社會', badge:['check','待購票・時間 TBA'], note:'現場人潮擁擠，手機與錢包請貼身。', cost:'球票另計（不含在預算）', maps:M('Spotify Camp Nou')},
     {time:'賽後', type:'transit', mode:'metro', route:'Collblanc → L5 → Sagrada Família', duration:'約 25 分（賽後人多，可晚 20–30 分再走）', cost:'T-casual 1 趟'}
    ]},
- { day:4, date:'12/21', wd:'一', title:'擴展區：維森斯之家 ＋ 米拉之家 ＋ 格拉西亞大道', tags:['美食','彈性'], pace:'mid',
-   hl:'維森斯之家 → Cervecería Catalana → 米拉之家',
-   alerts:['🔁 米拉之家從 12/25 移到今天：與午餐、格拉西亞大道同一帶，不必在聖誕節趕場。請預約下午時段。'],
+ { day:4, date:'12/21', wd:'一', title:'擴展區：維森斯之家 ＋ 格拉西亞大道逛街美食', tags:['美食','彈性'], pace:'mid',
+   hl:'維森斯之家 → Cervecería Catalana → 格拉西亞大道逛街',
+   alerts:['🛍️ 米拉之家不購票進場，改在 12/25 當天只看外觀；今天下午專心逛格拉西亞大道。'],
    events:[
     {time:'09:30', type:'transit', mode:'metro', route:'Sagrada Família → L5 → Diagonal 轉 L3 → Fontana', duration:'約 20 分', cost:'T-casual 1 趟'},
     {time:'10:00', type:'spot', name:'維森斯之家 Casa Vicens Gaudí', badge:['book','建議預約'], note:'高第第一件住宅作品，摩爾與伊斯蘭瓷磚風格。', cost:'門票 €19／人', maps:M('Casa Vicens Gaudi')},
     {time:'12:00', type:'transit', mode:'metro', route:'Fontana → L3 → Diagonal（步行約 6 分）', duration:'約 15 分', cost:'T-casual 1 趟'},
     {time:'12:15', type:'food', name:'午餐：Cervecería Catalana', badge:['info','🥘 美食'], note:'人氣 Tapas 名店，建議 12:30 前抵達免久候。', cost:'€25–30／人', maps:M('Cerveceria Catalana Barcelona')},
-    {time:'14:15', type:'spot', name:'米拉之家 La Pedrera（Casa Milà）', badge:['book','建議預約'], note:'波浪石材外觀與屋頂煙囪群。午餐後步行即可到。', cost:'門票 €28–38／人', maps:M('La Pedrera Casa Mila')},
-    {time:'16:30', type:'free', name:'格拉西亞大道逛街（含巴特略之家外觀拍照）', badge:['info','🚶 彈性'], note:'Zara、Mango、LOEWE 等旗艦店。', cost:'購物依個人', maps:M('Passeig de Gràcia Barcelona')},
+    {time:'14:30', type:'free', name:'格拉西亞大道逛街（含巴特略之家外觀拍照）', badge:['info','🚶 彈性'], note:'Zara、Mango、LOEWE 等旗艦店。', cost:'購物依個人', maps:M('Passeig de Gràcia Barcelona')},
     {time:'19:00', type:'food', name:'晚餐：Paco Meralgo 或 El Nacional', badge:['info','🥘 美食'], note:'精緻 Tapas 或大型美食殿堂，擇一。', cost:'€30–45／人', maps:M('Paco Meralgo Barcelona')},
     {time:'21:00', type:'transit', mode:'metro', route:'Diagonal（L5）或 Passeig de Gràcia（L2）→ Sagrada Família', duration:'約 12 分', cost:'T-casual 1 趟'}
    ]},
@@ -422,28 +407,30 @@ const days = [
     {time:'16:00', type:'transit', mode:'metro', route:'Drassanes → L3 轉 L2（Paral·lel）→ Sagrada Família', duration:'約 22 分', cost:'T-casual 1 趟'},
     {time:'18:30', type:'food', name:'4 人平安夜公寓大餐 ＋ 聖家堂夜間點燈', badge:['info','🥘 美食'], note:'飯後步行看聖家堂點燈。', cost:'食材約 €15–20／人'}
    ]},
- { day:8, date:'12/25', wd:'五', title:'聖誕節：桂爾公園 ＋ 巴特略之家（輕量版）', tags:['已預約','美食'], pace:'mid',
-   hl:'桂爾公園 → 聖誕午餐 → 巴特略之家 → 聖誕燈飾',
-   alerts:['🎅 聖誕節多數市場、商店與大型博物館休息；聖家堂 12/25 只開到 14:00（本行程不排）。','請用官網再確認桂爾公園與巴特略之家當日開放與入場時段；已預約的時間請以票券為準。'],
+ { day:8, date:'12/25', wd:'五', title:'聖誕節：桂爾公園 ＋ 巴特略之家 ＋ 米拉之家外觀（輕量版）', tags:['已預約','美食'], pace:'mid',
+   hl:'桂爾公園 → 聖誕午餐 → 巴特略之家 → 米拉之家外觀＋聖誕燈飾',
+   alerts:['🎅 聖誕節多數市場、商店與大型博物館休息；聖家堂 12/25 只開到 14:00（本行程不排）。','🏛️ 米拉之家今天只在街邊看外觀、不入內；官方資料顯示它 12/25 休館，不影響外觀參觀。','請用官網再確認桂爾公園與巴特略之家當日開放與入場時段；已預約的時間請以票券為準。'],
    events:[
     {time:'10:00', type:'transit', mode:'taxi', route:'公寓 → 4 人共乘 Taxi 到桂爾公園正門', duration:'約 10 分', cost:'約 €3／人'},
     {time:'10:30', type:'spot', name:'桂爾公園 Park Güell', badge:['booked','🎟️ 已預約'], note:'彩瓷蜥蜴與巴塞隆納全景露台。', cost:'門票 €10／人', maps:M('Park Guell')},
     {time:'12:30', type:'transit', mode:'taxi', route:'桂爾公園 → 4 人共乘 Taxi → Passeig de Gràcia', duration:'約 12 分', cost:'約 €3.5／人'},
     {time:'12:45', type:'food', name:'格拉西亞區聖誕節特別午餐', badge:['booked','已預約'], note:'聖誕節營業的餐廳有限，已訂位的話請保留確認信。', cost:'€25–35／人'},
     {time:'15:45', type:'spot', name:'巴特略之家 Casa Batlló', badge:['booked','🎟️ 已預約'], note:'龍脊與海洋意象，附 VR 導覽器。', cost:'門票 €35–45／人', maps:M('Casa Batllo')},
-    {time:'17:15', type:'free', name:'Passeig de Gràcia 聖誕燈飾散步（米拉之家夜景拍照）', badge:['info','🚶 輕鬆'], note:'天黑後燈光最美，不用趕場。', cost:'免費'},
+    {time:'17:30', type:'free', name:'米拉之家 La Pedrera 外觀拍照（不入內）＋ Passeig de Gràcia 聖誕燈飾散步', badge:['info','外觀免費'], note:'從巴特略之家沿大道走過去，天黑後燈光最美，不用趕場。', cost:'免費', maps:M('La Pedrera Casa Mila')},
     {time:'19:00', type:'transit', mode:'metro', route:'Diagonal → L5 → Sagrada Família', duration:'約 10 分', cost:'T-casual 1 趟'}
    ]},
  { day:9, date:'12/26', wd:'六', title:'聖史蒂芬節：舊城區集中日（波恩區 ＋ 哥德區）', tags:['美食'], pace:'busy',
-   hl:'音樂宮 → Hofmann → 畢卡索 ＋ Moco → 7 Portes',
-   alerts:['🎁 12/26 是加泰隆尼亞公共假日，不少商店與餐廳休息；晚餐請務必先訂位。畢卡索美術館當天有開；桂爾宮休館（本行程不排）。','🧳 今晚回公寓後請先打包，明早 07:00 出發。'],
+   hl:'音樂宮 → 畢卡索 → Puertecillo 午餐 → Hofmann → Moco → 7 Portes',
+   alerts:['🎁 12/26 是加泰隆尼亞公共假日，不少商店休息；本日景點已逐一對照官網：音樂宮照常開放、畢卡索美術館只有 12/25 休館、Moco 每天開放、桂爾宮 12/26 休館（本行程不排）。','🍤 Puertecillo Born 週五至週日 13:00 才開，所以午餐從 12:00 調到 13:00，並把畢卡索美術館提前到午餐前。','☎️ 假日營業時間可能與平日不同，Hofmann、Puertecillo、7 Portes 的 12/26 實際時間請先電話或官網確認並訂位。','🧳 今晚回公寓後請先打包，明早 07:00 出發。'],
    events:[
     {time:'09:00', type:'transit', mode:'metro', route:'Sagrada Família → L5 轉 L1 → Urquinaona（步行 3 分）', duration:'約 18 分', cost:'T-casual 1 趟'},
-    {time:'09:30', type:'spot', name:'加泰隆尼亞音樂宮 Palau de la Música Catalana', badge:['book','建議預約導覽'], note:'彩繪玻璃穹頂，陽光好時最美。', cost:'門票 €18–22／人', maps:M('Palau de la Musica Catalana')},
-    {time:'12:00', type:'food', name:'午餐：Puertecillo Born ＋ Pastisseria Hofmann 可頌', badge:['info','🥘 美食'], note:'現點現烤海鮮；飯後吃 Hofmann 烤可頌。', cost:'€30／人', maps:M('Pastisseria Hofmann Barcelona')},
-    {time:'14:00', type:'spot', name:'畢卡索美術館 ＋ Moco Museum', badge:['book','建議預約'], note:'同一條老街，大師作品與當代藝術（Banksy 等）。', cost:'門票 €31／人', maps:M('Museu Picasso Barcelona')},
-    {time:'16:30', type:'free', name:'哥德區與大教堂周邊散步（彈性緩衝）', badge:['info','🚶 彈性'], note:'給買紀念品與休息；若累了可直接回公寓補眠。', cost:'免費'},
-    {time:'19:00', type:'food', name:'晚餐：7 Portes（百年海鮮燉飯）或 La Fonda', badge:['book','請先訂位'], note:'最地道的 Paella。', cost:'€25–50／人', maps:M('7 Portes Barcelona')},
+    {time:'09:30', type:'spot', name:'加泰隆尼亞音樂宮 Palau de la Música Catalana', badge:['book','官網：12/26 照常開放'], note:'官網聖誕節時間：12/26 照常，參觀時段 09:00–15:30。彩繪玻璃穹頂，約 1–1.5 小時。', cost:'門票 €20–24／人（自助 €20、導覽 €24，現場購票另加 €1）', maps:M('Palau de la Musica Catalana')},
+    {time:'11:15', type:'spot', name:'畢卡索美術館 Museu Picasso', badge:['book','建議預約 11:15 時段'], note:'官網：只有 1/1、5/1、6/24、12/25 休館；冬季 10:00–19:00，最後入場為閉館前 30 分。預留約 1.5 小時。', cost:'門票 €14／人（線上價）', maps:M('Museu Picasso Barcelona')},
+    {time:'13:15', type:'food', name:'午餐：Puertecillo Born 海鮮', badge:['check','13:00 開門・確認 12/26'], note:'官網週五至週日午間 13:00–16:00、晚間 19:30 起。自助點海鮮、現場料理，熱門時段會排隊，早點到。', cost:'約 €30／人', maps:M('Puertecillo Born Barcelona')},
+    {time:'14:45', type:'food', name:'Pastisseria Hofmann 可頌甜點（飯後）', badge:['check','確認 12/26 營業'], note:'官網平日 09:00–20:00（週日 09:00–19:00），沒有查到聖誕假期的特別公告。店內多為外帶，可邊走邊吃。', cost:'約 €5／人', maps:M('Pastisseria Hofmann Barcelona')},
+    {time:'15:15', type:'spot', name:'Moco Museum Barcelona', badge:['book','建議預約'], note:'官網：每天開放，12/18–1/6 每日 10:00–20:00；約 90 分鐘。與畢卡索美術館在同一條 Montcada 街上。', cost:'含在門票 €31／人的估算內', maps:M('Moco Museum Barcelona')},
+    {time:'17:00', type:'free', name:'哥德區與大教堂周邊散步（彈性緩衝）', badge:['info','🚶 彈性'], note:'買紀念品與休息；若累了可直接回公寓補眠。', cost:'免費'},
+    {time:'19:00', type:'food', name:'晚餐：7 Portes（百年海鮮燉飯）或 La Fonda', badge:['book','請先訂位並確認菜單'], note:'7 Portes 官網提供聖誕菜單 €72／€92／€120，供應至 1/6；訂位時請問清楚當晚是否可單點，以免預算超支。La Fonda 我沒有查到 12/26 資訊，請先確認。', cost:'€25–50／人（若吃聖誕菜單會更高）', maps:M('7 Portes Barcelona')},
     {time:'21:30', type:'transit', mode:'taxi', route:'晚餐 → 4 人共乘 Taxi 回公寓（或 L4 轉 L2）', duration:'約 12 分', cost:'約 €3.5／人'}
    ]},
  { day:10, date:'12/27', wd:'日', title:'返程日｜BCN T1 → 阿布達比 → 12/28 抵達台灣 T2', tags:['交通'], pace:'light',
@@ -457,7 +444,6 @@ const days = [
    ]}
 ];
 
-/* ================= itinerary state & render ================= */
 const state = { date:'all', tag:'all', q:'', open:new Set() };
 const done = new Set(store.get('bcn_done_v1', []));
 const dateChips = $('#date-chips'), tagChips = $('#tag-chips');
@@ -545,24 +531,24 @@ function renderDays(){
   }).join('');
 }
 
-/* ================= bookings ================= */
 const bookingDefs = [
  {g:'🎟️ 票券與預約', items:[
   {id:'b1', t:'諾坎普球賽門票（12/20）', n:'最優先。開賽時間官網尚未公布（TBA）；轉售平台顯示接近完售，請走官方或授權管道，避免私人轉讓詐騙。', done:false, hot:true},
   {id:'b2', t:'聖家堂 12/22 09:00（含語音導覽）', n:'已預約。請把 QR code 截圖存手機。', done:true},
   {id:'b3', t:'桂爾公園 12/25 10:30', n:'已預約。請用官網確認當日開放與入場時段。', done:true},
   {id:'b4', t:'巴特略之家 12/25 15:45', n:'已預約。請用官網確認當日開放時間。', done:true},
-  {id:'b5', t:'米拉之家 12/21 14:15（新日期）', n:'由 12/25 移過來，請預約下午時段。', done:false, hot:true},
   {id:'b6', t:'聖保羅醫院 12/20 09:30', n:'建議線上預約，避免排隊。', done:false},
   {id:'b7', t:'維森斯之家 12/21 10:00', n:'建議線上預約。', done:false},
   {id:'b8', t:'MNAC 12/22 14:00', n:'確認冬季開放與閉館時間。', done:false},
   {id:'b9', t:'桂爾宮 12/24 上午', n:'確認平安夜營業時間與是否需預約。', done:false},
-  {id:'b10', t:'加泰隆尼亞音樂宮 12/26 09:30', n:'選擇有中文或英文導覽的時段。', done:false},
-  {id:'b11', t:'畢卡索美術館 ＋ Moco 12/26 14:00', n:'建議預約時段。', done:false}
+  {id:'b10', t:'加泰隆尼亞音樂宮 12/26 09:30', n:'官網：12/26 照常開放。選擇有中文或英文導覽的時段。', done:false},
+  {id:'b11', t:'畢卡索美術館 12/26 11:15', n:'官網：12/26 開放，建議線上預約。', done:false},
+  {id:'b12', t:'Moco Museum 12/26 15:15', n:'官網：每天開放，12/18–1/6 為 10:00–20:00。', done:false}
  ]},
  {g:'🍽️ 餐廳訂位', items:[
   {id:'r1', t:'12/25 聖誕節午餐（格拉西亞區）', n:'已預約。請保留確認信，聖誕節營業的餐廳有限。', done:true},
-  {id:'r2', t:'12/26 晚餐：7 Portes 或 La Fonda', n:'聖史蒂芬節假日，務必訂位。', done:false, hot:true},
+  {id:'r2', t:'12/26 晚餐：7 Portes 或 La Fonda', n:'聖史蒂芬節假日，務必訂位；問清楚是否可單點（7 Portes 官網有聖誕菜單）。', done:false, hot:true},
+  {id:'r5', t:'12/26 午餐：Puertecillo Born（13:00 開門）', n:'確認 12/26 營業時間，建議 13:00 前後到。', done:false},
   {id:'r3', t:'12/23 晚餐：La Rita', n:'建議訂位。', done:false},
   {id:'r4', t:'12/21 午餐：Cervecería Catalana', n:'通常不需訂位，12:30 前到最保險。', done:true}
  ]},
@@ -592,11 +578,10 @@ function renderBookings(){
   $('#book-bar').style.width = pct+'%';
 }
 
-/* ================= budget ================= */
 const budget = [
  {icon:'🎟️', name:'景點與預約門票', color:'var(--terra)', items:[
    ['聖保羅醫院',18,18],['維森斯之家',19,19],['聖家堂（含語音導覽、不登塔）',26,26],['MNAC',12,12],['桂爾宮',12,12],
-   ['桂爾公園',10,10],['巴特略之家',35,45],['米拉之家',28,38],['加泰隆尼亞音樂宮',18,22],['畢卡索美術館 ＋ Moco',31,31]]},
+   ['桂爾公園',10,10],['巴特略之家',35,45],['米拉之家：只看外觀，不計門票',0,0],['加泰隆尼亞音樂宮（官網自助 €20／導覽 €24）',20,24],['畢卡索美術館 ＋ Moco',31,31]]},
  {icon:'🥘', name:'每日餐飲', color:'var(--olive)', items:[
    ['聖安東尼市場午餐',15,20],['波蓋利亞市場點心',12,18],['Cervecería Catalana 午餐',25,30],['Paco Meralgo／El Nacional 晚餐',30,45],
    ['Granja Viader 早餐',6,10],['聖家堂周邊午餐 ×2（12/20、12/22）',36,44],['La Rita 晚餐',25,30],['聖誕節午餐',25,35],
@@ -620,9 +605,8 @@ function renderBudget(){
   $('#bud-total-twd').textContent = `≈ NT$ ${fmt(lo*rate)} – NT$ ${fmt(hi*rate)} ／人`;
 }
 
-/* ================= packing ================= */
 const defaultItems = [
- {id:'item-1', title:'護照（效期建議 6 個月以上，內頁含身分證統一編號）', cat:'證件文件'},
+ {id:'item-1', title:'護照（效期建議 6 個月以上）', cat:'證件文件'},
  {id:'item-2', title:'財力證明／申根保險證明／電子機票／訂房收據（列印＋離線備份）', cat:'證件文件'},
  {id:'item-3', title:'ETIAS：目前尚未啟用、本次免申請（網路收費代辦網站請小心）', cat:'證件文件'},
  {id:'item-4', title:'西班牙入境卡（若有規定需備妥）', cat:'證件文件'},
@@ -655,7 +639,7 @@ const defaultItems = [
 function loadPacking(){
   const v3 = store.get('bcn_packing_v3', null);
   if(v3) return v3;
-  const v2 = store.get('bcn_packing_checklist_v2', null) || store.get('bcn_packing_checklist_v2'.replace(/_/g,'_'), null);
+  const v2 = store.get('bcn_packing_checklist_v2', null);
   const items = defaultItems.map(i=>({...i, checked:false}));
   if(Array.isArray(v2)){
     v2.forEach(o => {
@@ -681,7 +665,6 @@ function renderPacking(){
 }
 function savePacking(){ store.set('bcn_packing_v3', packing); }
 
-/* ================= events ================= */
 function setDate(v){
   state.date = v;
   dateChips.querySelectorAll('.chip').forEach(b=>b.classList.toggle('on', b.dataset.date===v));
@@ -760,7 +743,6 @@ $('#search').addEventListener('input', e => {
 });
 $('#rate').addEventListener('input', renderBudget);
 
-/* ================= countdown & init ================= */
 function countdown(){
   const el = $('#countdown'), now = new Date();
   const start = new Date(2026,11,18,18,40), end = new Date(2026,11,28,9,0);
