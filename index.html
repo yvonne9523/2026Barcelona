@@ -286,22 +286,23 @@
 <section class="tab stack" id="tab-5">
   <div class="card pad">
     <h2>🔧 與原版的差異（Copilot 優化重點）</h2>
-    <p class="small muted" style="margin:0 0 10px">下列調整皆保留你原本的景點、餐廳與天數，只重排順序或修正資訊。</p>
+    <p class="small muted" style="margin:0 0 10px">下列為本版與上一版的主要差異。</p>
     <div class="tbl-wrap"><table>
       <thead><tr><th>項目</th><th>原版</th><th>優化版</th><th>原因</th></tr></thead>
       <tbody>
-        <tr><td>12/20 足球賽</td><td>寫 15:30 開賽</td><td>改為「開賽前 2 小時出發」，開賽時間標示待確認</td><td>FC Barcelona 官網目前顯示 12/20（日）、開賽時間 TBA</td></tr>
-        <tr><td>米拉之家</td><td>12/25 入內參觀（€28–38）</td><td>維持 12/25，改為只在外面看、不購票，已從預算與預約清單移除</td><td>你們不打算進場；官方資料顯示它 12/25 休館，但外觀可免費參觀</td></tr>
-        <tr><td>12/26 舊城區</td><td>12:00 午餐、14:00 兩館</td><td>畢卡索提前到 11:15，13:15 在 Puertecillo 午餐，之後 Hofmann 與 Moco</td><td>Puertecillo 週五至週日 13:00 才開；音樂宮、畢卡索、Moco 在 12/26 均開放</td></tr>
-        <tr><td>12/22 看夕陽</td><td>19:00 才離開 MNAC</td><td>17:00 前就位、17:45 離開</td><td>12 月日落約 17:20–17:30</td></tr>
-        <tr><td>12/24 平安夜</td><td>13:00 進桂爾宮、下午海港</td><td>桂爾宮改上午；中午前在波蓋利亞備好食材</td><td>12/24 多數店家中午後提早關門</td></tr>
-        <tr><td>12/19 入境</td><td>07:45 搭 Taxi</td><td>08:15 搭 Taxi，並提醒 EES 生物辨識登記</td><td>首次入境申根需登記臉部＋指紋，預留排隊緩衝</td></tr>
-        <tr><td>機場地鐵與 T-casual</td><td>機場票 €5.50；T-casual €1.25／趟</td><td>機場票 €5.90；T-casual €13／10 趟（≈€1.30）；機場站不可用</td><td>TMB 2026 官方票價</td></tr>
-        <tr><td>ETIAS</td><td>預計 2026 第四季開放申請</td><td>目前尚未啟用、本次免申請</td><td>歐盟尚未公布啟用日期，最早 2027</td></tr>
-        <tr><td>預算</td><td>€605–755</td><td>由明細自動加總（見預算頁）</td><td>原門票明細與實際加總不符；現已移除米拉之家門票，音樂宮改為官網票價 €20–24</td></tr>
-        <tr><td>12/23 出城</td><td>二選一</td><td>仍二選一，附決策規則</td><td>依天氣與體力快速決定</td></tr>
-        <tr><td>功能</td><td>依賴外部 CDN</td><td>單檔離線可用；新增預約追蹤、行程完成勾選、今日標示、倒數、列印</td><td>旅途中網路不穩也能開</td></tr>
-      </tbody>
+          <tr><td>行程順序</td><td>上一版 Copilot 行程</td><td>依你提供的 DAY2–DAY9 文字清單重排</td><td>以你的清單為準；清單沒有的 Barça Store、MNAC 博物館、Moco、Puertecillo、Hofmann、La Rita、Granja Viader 已移除</td></tr>
+          <tr><td>12/20 足球賽</td><td>寫 15:30 開賽</td><td>改為「開賽前 2 小時出發」，開賽時間標示待確認</td><td>FC Barcelona 官網目前顯示 12/20（日）、開賽時間 TBA</td></tr>
+          <tr><td>米拉之家</td><td>12/25 入內參觀（€28–38）</td><td>維持 12/25，改為只在外面看、不購票，已從預算與預約清單移除</td><td>你們不打算進場；官方資料顯示它 12/25 休館，但外觀可免費參觀</td></tr>
+          <tr><td>12/21 出城</td><td>12/23 二選一</td><td>移到 12/21，仍二選一（蒙特塞拉特／錫切斯），附決策規則</td><td>你的清單 DAY4 為「出城」</td></tr>
+          <tr><td>12/23 舊城區</td><td>音樂宮、畢卡索在 12/26</td><td>12/23 串成步行路線：凱旋門 → 音樂宮 → 哥德區 → 波恩區 → 7 Portes → L’Estel Ferit</td><td>你的清單 DAY6；L’Estel Ferit 是海灘雕塑，夜間請注意扒手</td></tr>
+          <tr><td>12/26 蒙特惠奇山</td><td>12/22 看夕陽（MNAC）</td><td>12/26 蒙特惠奇山，17:00 前就位看夕陽，只排戶外</td><td>12 月日落約 17:20–17:30；清單未列 MNAC 入場</td></tr>
+          <tr><td>12/24 平安夜</td><td>13:00 進桂爾宮、下午海港</td><td>波蓋利亞 → 桂爾宮（上午）→ La Fonda → 哥倫布紀念碑</td><td>桂爾宮官網 12/25–26 休館；12/24 下午店家可能提早關門</td></tr>
+          <tr><td>12/19 入境</td><td>07:45 搭 Taxi</td><td>08:15 搭 Taxi，並提醒 EES 生物辨識登記</td><td>首次入境申根需登記臉部＋指紋，預留排隊緩衝</td></tr>
+          <tr><td>機場地鐵與 T-casual</td><td>機場票 €5.50；T-casual €1.25／趟</td><td>機場票 €5.90；T-casual €13／10 趟（≈€1.30）；機場站不可用</td><td>TMB 2026 官方票價</td></tr>
+          <tr><td>ETIAS</td><td>預計 2026 第四季開放申請</td><td>目前尚未啟用、本次免申請</td><td>歐盟尚未公布啟用日期，最早 2027</td></tr>
+          <tr><td>預算</td><td>€597–757</td><td>依新行程重算（見預算頁）</td><td>移除 MNAC、Moco 等，新增清單中的餐廳；部分餐點為估算</td></tr>
+          <tr><td>功能</td><td>依賴外部 CDN</td><td>單檔離線可用；新增預約追蹤、行程完成勾選、今日標示、倒數、列印</td><td>旅途中網路不穩也能開</td></tr>
+        </tbody>
     </table></div>
   </div>
 </section>
@@ -328,86 +329,104 @@ const modeLabel = {metro:'🚇 地鐵', walk:'🚶 步行', taxi:'🚕 Taxi', tr
 const paceLabel = {light:'輕鬆', mid:'適中', busy:'緊湊'};
 
 const days = [
- { day:1, date:'12/18', wd:'五', title:'出發日｜台北 T2 → 阿布達比', tags:['交通'], pace:'light',
+  { day:1, date:'12/18', wd:'五', title:'出發日｜台北 T2 → 阿布達比', tags:['交通'], pace:'light',
    hl:'桃園 T2 報到 → 18:40 起飛', alerts:[],
    events:[
     {time:'16:00', type:'spot', name:'桃園機場【第二航廈 T2】報到與托運', note:'請於起飛前約 2.5 小時抵達阿提哈德航空櫃檯；行動電源與液體請放隨身行李。', cost:'€0', maps:M('Taoyuan International Airport Terminal 2')},
     {time:'18:40', type:'flight', name:'TPE T2 起飛 → 阿布達比 AUH（阿提哈德航空）', note:'預計 12/19 00:30 抵達阿布達比。', cost:'已付機票'}
    ]},
- { day:2, date:'12/19', wd:'六', title:'抵達日｜BCN T1 ＋ 聖安東尼市場 ＋ 適應時差', tags:['美食'], pace:'light',
-   hl:'入境 → 放行李 → 聖安東尼市場 → 補眠',
+ { day:2, date:'12/19', wd:'六', title:'抵達日｜BCN T1 ＋ 聖安東尼市場 ＋ 採買 ＋ 聖誕市集', tags:['美食'], pace:'light',
+   hl:'入境 → 放行李 → Pinotxo → Lidl／Mercadona → 聖誕市集 → El Glop Gaudí',
    alerts:['🛂 首次入境申根會做 EES 臉部＋指紋登記，排隊時間不一定，所以 Taxi 時間從 07:45 延後到 08:15；若很快出關可提早走。'],
    events:[
     {time:'06:55', type:'flight', name:'抵達巴塞隆納 BCN T1（AUH 02:35 起飛）', note:'完成入境與提領行李。', cost:'—'},
     {time:'08:15', type:'transit', mode:'taxi', route:'BCN T1 → Taxi 直達 Suite Home Sagrada Familia', duration:'約 25–30 分', cost:'€9–10／人（4 人分攤）'},
     {time:'08:50', type:'spot', name:'Suite Home Sagrada Familia 寄放行李', note:'先放行李、整理隨身包再出門。', cost:'€0', maps:M('Avinguda de Gaudí 28, 08025 Barcelona')},
     {time:'10:00', type:'transit', mode:'metro', route:'Sagrada Família → L2 紫線 → Sant Antoni（步行 2 分）', duration:'約 15 分', cost:'T-casual 1 趟'},
-    {time:'10:30', type:'food', name:'聖安東尼市場 Mercat de Sant Antoni', badge:['info','🥘 美食'], note:'傳統鋼構市場，Tapas 與海鮮午餐。營業時間以現場公告為準。', cost:'€15–20／人', maps:M('Mercat de Sant Antoni Barcelona')},
-    {time:'14:00', type:'transit', mode:'metro', route:'Sant Antoni → L2 → Sagrada Família', duration:'約 15 分', cost:'T-casual 1 趟'},
-    {time:'14:30', type:'free', name:'公寓 Check-in ＋ 補眠', note:'入住時間以房東通知為準。先睡 1–2 小時就好，晚上才睡得著。', cost:'—'},
-    {time:'17:30', type:'free', name:'聖家堂旁聖誕市集散步 ＋ Mercadona 採買', badge:['info','🚶 輕鬆'], note:'買水果、零食與水。早點吃晚餐，21:00 前睡覺調時差。', cost:'免費／超市約 €15', maps:M('Mercadona Sagrada Familia Barcelona')}
+    {time:'10:30', type:'food', name:'聖安東尼市場 Mercat de Sant Antoni ＋ Bar Restaurant Pinotxo 早午餐', badge:['info','🥘 美食'], note:'Pinotxo 在市場內（Carrer del Compte d’Urgell 1）。查到的資料為週二至週六 08:00–16:30、週日與週一休息，今天週六有開；資料顯示不接受訂位、座位不多，建議早點到。', cost:'€10–20／人', maps:M('Bar Pinotxo Mercat de Sant Antoni Barcelona')},
+    {time:'12:00', type:'free', name:'Lidl 採買（Carrer del Comte d’Urgell 1）', badge:['info','🛒 採買'], note:'就在市場旁約 110 公尺。官網與地圖資料顯示週一至週六營業，今天週六有開。', cost:'依採買', maps:M('Lidl Carrer del Comte d’Urgell 1 Barcelona')},
+    {time:'12:30', type:'transit', mode:'metro', route:'Sant Antoni → L2 → Sagrada Família', duration:'約 15 分', cost:'T-casual 1 趟'},
+    {time:'13:15', type:'free', name:'Mercadona 採買（Plaça Sagrada Família）', badge:['info','🛒 採買'], note:'離公寓很近，順路補買水果、水與零食。Mercadona 一般週一至週六 09:00–21:30，以現場為準。', cost:'約 €15', maps:M('Mercadona Plaça Sagrada Família 12 Barcelona')},
+    {time:'14:00', type:'free', name:'回 Suite Home Sagrada Familia：放食材 ＋ Check-in ＋ 補眠', note:'入住時間以房東通知為準。先睡 1–2 小時就好，晚上才睡得著。', cost:'—'},
+    {time:'17:30', type:'free', name:'聖家堂聖誕市集 Fira de Nadal de la Sagrada Família', badge:['info','🚶 輕鬆'], note:'官方日期 11/21–12/23，每天 10:00–21:00，在聖家堂前的廣場，12/19 還有營業。', cost:'免費', maps:M('Plaça de la Sagrada Família Barcelona')},
+    {time:'19:00', type:'food', name:'晚餐：El Glop Gaudí', badge:['book','可線上訂位'], note:'Carrer de València 443，離聖家堂只有幾步；官網列週六 12:00–23:30。早點吃、21:00 前睡覺調時差。', cost:'€20–35／人', maps:M('El Glop Gaudí Barcelona')}
    ]},
- { day:3, date:'12/20', wd:'日', title:'高第大道早晨 ＋ 諾坎普足球日', tags:['美食'], pace:'mid',
-   hl:'聖保羅醫院 → Barça Store → 諾坎普球賽',
-   alerts:['⚽ 官網顯示 12/20（日）西甲第 17 輪對皇家社會，開賽時間尚未公布（TBA）；各轉售站標示的時間不一致。出發時間＝開賽前 2 小時，球票請走官方或授權管道。'],
+ { day:3, date:'12/20', wd:'日', title:'聖保羅醫院 ＋ 諾坎普足球日', tags:['美食'], pace:'mid',
+   hl:'Xurreria de Maria → 聖保羅醫院 → O Retorno → 諾坎普球賽',
+   alerts:['⚽ 官網顯示 12/20（日）西甲第 17 輪對皇家社會，開賽時間尚未公布（TBA）；各轉售站標示的時間不一致。出發時間＝開賽前 2 小時，球票請走官方或授權管道。','🍽️ O Retorno 午餐時間先抓 13:30，等開賽時間公布後再前後調整；資料顯示每天 11:30–23:30 營業，旅客評論提到常客滿，建議先訂位。'],
    events:[
-    {time:'09:15', type:'transit', mode:'walk', route:'公寓 → 沿高第大道步行 → 聖保羅醫院', duration:'步行約 5 分', cost:'€0'},
+    {time:'08:30', type:'food', name:'早餐：La Xurreria de Maria 吉拿棒', badge:['info','🥘 美食'], note:'Carrer de Provença 449，在聖家堂旁。我查到的兩個來源都列週日 08:00–20:00，但有一個來源的平日時間不同，出發前可再用地圖確認。', cost:'約 €5–8／人', maps:M('La Xurreria de Maria Carrer de Provença 449 Barcelona')},
+    {time:'09:15', type:'transit', mode:'walk', route:'La Xurreria de Maria → 沿高第大道步行 → 聖保羅醫院', duration:'步行約 10–15 分', cost:'€0'},
     {time:'09:30', type:'spot', name:'聖保羅醫院 Recinte Modernista de Sant Pau', badge:['book','建議預約'], note:'世界文化遺產。週日 09:30 開放，約逛 1.5–2 小時。', cost:'門票 €18／人', maps:M('Recinte Modernista de Sant Pau')},
-    {time:'11:15', type:'transit', mode:'walk', route:'聖保羅醫院 → 高第大道步行 → Barça Store Sagrada Família', duration:'步行 6–8 分', cost:'€0'},
-    {time:'11:30', type:'food', name:'Barça Store 選購週邊 ＋ 聖家堂周邊午餐', badge:['info','🥘 美食'], note:'先買好隊服、圍巾，午餐嚐香腸與燉飯。', cost:'午餐 €18–22／人', maps:M('Barca Store Sagrada Familia')},
-    {time:'13:00', type:'free', name:'回公寓休息、換球衣、補水', note:'球場周邊餐飲排隊久，建議先吃飽。', cost:'—'},
-    {time:'賽前 2 小時', type:'transit', mode:'metro', route:'Sagrada Família → L5 藍線 → Collblanc 或 Badal → 步行至球場', duration:'地鐵約 28 分＋步行 10–15 分', cost:'T-casual 1 趟'},
+    {time:'11:30', type:'transit', mode:'walk', route:'聖保羅醫院 → 沿高第大道步行 → Suite Home Sagrada Familia', duration:'步行約 10 分', cost:'€0'},
+    {time:'12:00', type:'free', name:'回 Suite Home Sagrada Familia 休息、換球衣、補水', note:'球場周邊餐飲排隊久，建議先在 O Retorno 吃飽再去。', cost:'—'},
+    {time:'13:00', type:'transit', mode:'metro', route:'Sagrada Família → L5 藍線 → Hospital Clínic（步行約 5–8 分到餐廳）', duration:'地鐵約 10 分＋步行約 5–8 分', cost:'T-casual 1 趟'},
+    {time:'13:30', type:'food', name:'午餐：O Retorno（加利西亞料理）', badge:['book','建議訂位'], note:'Carrer del Comte d’Urgell 168。旅客評論常提到章魚與海鮮。若開賽時間較晚或較早，再調整用餐時間。', cost:'€25–40／人', maps:M('O’Retorno Carrer del Comte d’Urgell 168 Barcelona')},
+    {time:'賽前 2 小時', type:'transit', mode:'metro', route:'Hospital Clínic → L5 → Collblanc 或 Badal → 步行至球場', duration:'地鐵約 10 分＋步行 10–15 分', cost:'T-casual 1 趟'},
     {time:'開賽時間待定', type:'spot', name:'諾坎普球場 Spotify Camp Nou｜西甲：巴塞隆納 vs 皇家社會', badge:['check','待購票・時間 TBA'], note:'現場人潮擁擠，手機與錢包請貼身。', cost:'球票另計（不含在預算）', maps:M('Spotify Camp Nou')},
     {time:'賽後', type:'transit', mode:'metro', route:'Collblanc → L5 → Sagrada Família', duration:'約 25 分（賽後人多，可晚 20–30 分再走）', cost:'T-casual 1 趟'}
    ]},
- { day:4, date:'12/21', wd:'一', title:'擴展區：維森斯之家 ＋ 格拉西亞大道逛街美食', tags:['美食','彈性'], pace:'mid',
-   hl:'維森斯之家 → Cervecería Catalana → 格拉西亞大道逛街',
-   alerts:['🛍️ 米拉之家不購票進場，改在 12/25 當天只看外觀；今天下午專心逛格拉西亞大道。'],
-   events:[
-    {time:'09:30', type:'transit', mode:'metro', route:'Sagrada Família → L5 → Diagonal 轉 L3 → Fontana', duration:'約 20 分', cost:'T-casual 1 趟'},
-    {time:'10:00', type:'spot', name:'維森斯之家 Casa Vicens Gaudí', badge:['book','建議預約'], note:'高第第一件住宅作品，摩爾與伊斯蘭瓷磚風格。', cost:'門票 €19／人', maps:M('Casa Vicens Gaudi')},
-    {time:'12:00', type:'transit', mode:'metro', route:'Fontana → L3 → Diagonal（步行約 6 分）', duration:'約 15 分', cost:'T-casual 1 趟'},
-    {time:'12:15', type:'food', name:'午餐：Cervecería Catalana', badge:['info','🥘 美食'], note:'人氣 Tapas 名店，建議 12:30 前抵達免久候。', cost:'€25–30／人', maps:M('Cerveceria Catalana Barcelona')},
-    {time:'14:30', type:'free', name:'格拉西亞大道逛街（含巴特略之家外觀拍照）', badge:['info','🚶 彈性'], note:'Zara、Mango、LOEWE 等旗艦店。', cost:'購物依個人', maps:M('Passeig de Gràcia Barcelona')},
-    {time:'19:00', type:'food', name:'晚餐：Paco Meralgo 或 El Nacional', badge:['info','🥘 美食'], note:'精緻 Tapas 或大型美食殿堂，擇一。', cost:'€30–45／人', maps:M('Paco Meralgo Barcelona')},
-    {time:'21:00', type:'transit', mode:'metro', route:'Diagonal（L5）或 Passeig de Gràcia（L2）→ Sagrada Família', duration:'約 12 分', cost:'T-casual 1 趟'}
-   ]},
- { day:5, date:'12/22', wd:'二', title:'聖家堂 ＋ 蒙特惠奇山 ＆ MNAC 夕陽', tags:['已預約'], pace:'mid',
-   hl:'聖家堂 09:00 → MNAC → 17:00 夕陽',
-   alerts:['🌇 12 月日落約 17:20–17:30。看夕陽請 17:00 前就位；MNAC 冬季閉館時間請以官網為準。'],
-   events:[
-    {time:'08:50', type:'transit', mode:'walk', route:'公寓 → 聖家堂誕生立面入口', duration:'步行約 3 分', cost:'€0'},
-    {time:'09:00', type:'spot', name:'聖家堂 Basílica de la Sagrada Família', badge:['booked','🎟️ 已預約'], note:'含語音導覽、不登塔。預留約 2–3 小時。', cost:'門票 €26／人（未滿 30 歲 €24）', maps:M('Basílica de la Sagrada Família')},
-    {time:'12:00', type:'food', name:'高第大道周邊午餐', badge:['info','🥘 美食'], note:'海鮮飯或輕食，稍微休息。', cost:'€18–22／人'},
-    {time:'13:30', type:'transit', mode:'metro', route:'Sagrada Família → L5 轉 L1／或 L2 轉 L3 → Espanya（手扶梯上山）', duration:'約 25 分', cost:'T-casual 1 趟'},
-    {time:'14:00', type:'spot', name:'蒙特惠奇山 ＆ 加泰隆尼亞國家藝術博物館 MNAC', badge:['check','確認開放時間'], note:'逛博物館約 2 小時，再到館前大台階等夕陽與夜景。', cost:'門票 €12／人', maps:M('MNAC Barcelona')},
-    {time:'17:00', type:'free', name:'MNAC 台階看夕陽', badge:['info','🌇 日落約 17:20'], note:'台階免費，天氣好很值得。', cost:'免費'},
-    {time:'17:45', type:'transit', mode:'metro', route:'Espanya → L1 轉 L5／或 L3 轉 L2 → Sagrada Família', duration:'約 25 分', cost:'T-casual 1 趟'}
-   ]},
- { day:6, date:'12/23', wd:'三', title:'出城一日遊（二選一：蒙特塞拉特 或 錫切斯）', tags:['彈性','美食'], pace:'busy',
-   hl:'A 蒙特塞拉特（推薦）／B 錫切斯 → La Rita',
-   alerts:['🧭 決策規則：天氣晴、想看壯觀景色 → 選 A 蒙特塞拉特；下雨或想輕鬆 → 選 B 錫切斯。','🛒 12/24 多數店家提早關門，今天回程請順手買好平安夜食材（或隔天一早到波蓋利亞）。'],
+ { day:4, date:'12/21', wd:'一', title:'出城一日遊（二選一：蒙特塞拉特 或 錫切斯）', tags:['彈性'], pace:'busy',
+   hl:'A 蒙特塞拉特（推薦）／B 錫切斯',
+   alerts:['🧭 決策規則：天氣晴、想看壯觀景色 → 選 A 蒙特塞拉特；下雨或想輕鬆 → 選 B 錫切斯。','🚆 聖誕假期的火車班次與景點時間可能調整，請前一晚到官網確認出發與回程班次。'],
    events:[
     {time:'08:30', type:'transit', mode:'train', route:'A：地鐵到 Espanya 轉 FGC R5 ｜ B：地鐵到 Passeig de Gràcia 轉 Renfe R2', duration:'約 20 分到出發車站', cost:'T-casual 1 趟'},
     {time:'09:30', type:'spot', name:'方案 A（推薦）蒙特塞拉特 Montserrat', badge:['info','二選一'], note:'聖山奇岩、修道院與黑聖母。男童唱詩班演出時間請先查官網，不一定每天都有。', cost:'來回交通約 €10–30／人（依方案）', maps:M('Montserrat Abbey')},
     {time:'09:30', type:'spot', name:'方案 B 錫切斯 Sitges', badge:['info','二選一'], note:'地中海白色小鎮，沿海灘漫步、咖啡館休息。', cost:'來回交通約 €10–30／人', maps:M('Sitges Spain')},
-    {time:'16:30', type:'free', name:'返回市區 ＋ 平安夜食材採買', note:'超市或市場先買好肉、乳酪、麵包、紅酒。', cost:'計入 12/24 食材'},
-    {time:'19:30', type:'food', name:'晚餐：La Rita（擴展區加泰隆尼亞菜）', badge:['book','建議訂位'], note:'氣氛優雅、CP 值高。', cost:'€25–30／人', maps:M('La Rita Restaurant Barcelona')},
-    {time:'21:30', type:'transit', mode:'metro', route:'Passeig de Gràcia → L2 → Sagrada Família', duration:'約 12 分', cost:'T-casual 1 趟'}
+    {time:'16:30', type:'free', name:'返回市區 ＋ 晚餐自由安排', note:'回程班次請提前查好；晚餐不在你的清單內，依體力就近解決。', cost:'—'}
    ]},
- { day:7, date:'12/24', wd:'四', title:'平安夜：蘭布拉 ＋ 桂爾宮（上午）＋ 港區 ＋ 公寓聖誕大餐', tags:['美食','彈性'], pace:'mid',
-   hl:'桂爾宮 → 波蓋利亞備料 → 港區 → 公寓大餐',
-   alerts:['🎄 平安夜中午後店家陸續提早關門：桂爾宮改上午進場（營業時間請先確認），食材中午前在波蓋利亞備齊。','🌇 天黑得早（約 17:20），港區散步請在 16:00 前結束。'],
+ { day:5, date:'12/22', wd:'二', title:'聖家堂 ＋ 格拉西亞區美食與逛街', tags:['已預約','美食','彈性'], pace:'mid',
+   hl:'聖家堂 09:00 → Cervecería Catalana → Da Gallo 冰淇淋 → 格拉西亞大道 → Vinitus／El Nacional',
+   alerts:['🍽️ Vinitus 資料顯示不接受訂位、現場排隊，尖峰時段請提早；El Nacional 為備案，我沒有查到它的營業時間，請先確認。'],
    events:[
-    {time:'09:10', type:'transit', mode:'metro', route:'Sagrada Família → L2 → Universitat（步行約 8 分）', duration:'約 20 分', cost:'T-casual 1 趟'},
-    {time:'09:30', type:'food', name:'早餐：Granja M. Viader 百年老店', badge:['info','🥘 美食'], note:'1870 年創立，熱可可配 Churros。', cost:'€6–10／人', maps:M('Granja M Viader Barcelona')},
-    {time:'10:30', type:'spot', name:'桂爾宮 Palau Güell', badge:['check','確認 12/24 時間'], note:'高第早期豪宅，屋頂煙囪群很有特色。12/25–26 休館，所以放在今天。', cost:'門票 €12／人', maps:M('Palau Guell Barcelona')},
-    {time:'12:00', type:'food', name:'波蓋利亞市場 Mercat de la Boqueria（點心＋備料）', badge:['info','🥘 美食'], note:'伊比利火腿薄片、現榨果汁；順便補買平安夜食材。', cost:'€12–18／人', maps:M('Mercat de la Boqueria')},
-    {time:'14:00', type:'free', name:'哥倫布紀念碑 ＆ 貝爾港 Port Vell 散步', badge:['info','🚶 彈性'], note:'地中海港區，下午光線好。', cost:'免費', maps:M('Port Vell Barcelona')},
+    {time:'08:50', type:'transit', mode:'walk', route:'公寓 → 聖家堂誕生立面入口', duration:'步行約 3 分', cost:'€0'},
+    {time:'09:00', type:'spot', name:'聖家堂 Basílica de la Sagrada Família', badge:['booked','🎟️ 已預約'], note:'含語音導覽、不登塔。預留約 2–3 小時。', cost:'門票 €26／人（未滿 30 歲 €24）', maps:M('Basílica de la Sagrada Família')},
+    {time:'11:45', type:'transit', mode:'metro', route:'Sagrada Família → L5 → Diagonal（步行約 8 分到餐廳）', duration:'約 15 分', cost:'T-casual 1 趟'},
+    {time:'12:15', type:'food', name:'午餐：Cervecería Catalana', badge:['info','🥘 美食'], note:'人氣 Tapas 名店，Carrer de Mallorca 236；資料顯示接受訂位、每天營業。建議 12:30 前抵達免久候。', cost:'€25–30／人', maps:M('Cerveceria Catalana Barcelona')},
+    {time:'14:00', type:'food', name:'Gelateria Da Gallo 西西里手工冰淇淋', badge:['info','🥘 美食'], note:'Carrer de Mallorca 277，離 Cervecería Catalana 很近；資料顯示每天 12:00 起營業，週二到 23:00。', cost:'約 €4–6／人', maps:M('Gelateria Da Gallo Carrer de Mallorca 277 Barcelona')},
+    {time:'14:30', type:'free', name:'格拉西亞大道逛街（含巴特略之家外觀拍照）', badge:['info','🚶 彈性'], note:'Zara、Mango、LOEWE 等旗艦店。', cost:'購物依個人', maps:M('Passeig de Gràcia Barcelona')},
+    {time:'19:00', type:'food', name:'晚餐：Vinitus 或 El Nacional', badge:['info','🥘 美食'], note:'Vinitus 在 Carrer del Consell de Cent 333，資料顯示每天 11:00–01:00，不接受訂位。', cost:'€20–45／人', maps:M('Vinitus Carrer del Consell de Cent 333 Barcelona')},
+    {time:'21:00', type:'transit', mode:'metro', route:'Diagonal（L5）或 Passeig de Gràcia（L2）→ Sagrada Família', duration:'約 12 分', cost:'T-casual 1 趟'}
+   ]},
+ { day:6, date:'12/23', wd:'三', title:'凱旋門 ＋ 哥德區 ＋ 波恩區 ＋ 巴塞隆納海灘', tags:['美食','彈性'], pace:'busy',
+   hl:'凱旋門 → 音樂宮 → 親吻牆 → 主教座堂 → JonCake → Tapeo → 畢卡索 → 7 Portes → L’Estel Ferit',
+   alerts:['🚶 今天以步行為主，景點都在舊城區，距離不遠；JonCake、Tapeo 的營業時間請事前確認。','🌙 L’Estel Ferit 是巴塞隆納內塔海灘上的雕塑，不是餐廳。有旅客評論提醒該處傍晚後有扒手，請結伴、手機收好；也可以改在晚餐前天黑前順路看。'],
+   events:[
+    {time:'09:00', type:'transit', mode:'metro', route:'Sagrada Família → L2 → Tetuan → 沿 Passeig de Sant Joan 步行至凱旋門', duration:'地鐵約 6 分＋步行約 10 分', cost:'T-casual 1 趟'},
+    {time:'09:30', type:'spot', name:'凱旋門 Arc de Triomf', badge:['info','免費'], note:'1888 年世博的紅磚入口拱門，資料顯示全天開放、免費。拍照約 20–30 分。', cost:'免費', maps:M('Arc de Triomf Barcelona')},
+    {time:'10:00', type:'transit', mode:'walk', route:'凱旋門 → 步行 → 加泰隆尼亞音樂宮', duration:'步行約 12–15 分', cost:'€0'},
+    {time:'10:30', type:'spot', name:'加泰隆尼亞音樂宮 Palau de la Música Catalana', badge:['book','建議預約導覽'], note:'彩繪玻璃穹頂，約 1–1.5 小時。官網聖誕期間參觀時段約 09:00–15:30（我查到的是 12/26 的資料，12/23 請再確認）。', cost:'門票 €20–24／人（自助 €20、導覽 €24，現場購票另加 €1）', maps:M('Palau de la Musica Catalana')},
+    {time:'12:00', type:'food', name:'Xurreria Laietana 吉拿棒與熱巧克力', badge:['info','🥘 美食'], note:'Via Laietana 46，離音樂宮約 5 分鐘；資料顯示平日 07:00–21:30。', cost:'約 €5／人', maps:M('Xurreria Laietana Via Laietana 46 Barcelona')},
+    {time:'12:40', type:'transit', mode:'walk', route:'Xurreria Laietana → 步行 → Plaça d’Isidre Nonell', duration:'步行約 8 分', cost:'€0'},
+    {time:'12:50', type:'spot', name:'親吻牆 The Kiss of Freedom（El Petò）', badge:['info','免費'], note:'在哥德區 Plaça d’Isidre Nonell，離主教座堂步行約 2 分；由 4,000 片照片磚組成，免費參觀。', cost:'免費', maps:M('Plaça d’Isidre Nonell Barcelona')},
+    {time:'13:10', type:'spot', name:'巴塞隆納主教座堂 Catedral de Barcelona', badge:['check','確認入內時間'], note:'先拍外觀與廣場。入內參觀的開放時間與票價我沒有查到，請自行確認；預算只計外觀。', cost:'外觀免費（入內另計）', maps:M('Catedral de Barcelona')},
+    {time:'13:50', type:'spot', name:'主教橋 Pont del Bisbe', badge:['info','免費'], note:'哥德區的新哥德式小橋，離主教座堂很近，順路拍照。', cost:'免費', maps:M('Pont del Bisbe Barcelona')},
+    {time:'14:05', type:'transit', mode:'walk', route:'主教橋 → 步行 → JonCake（Carrer de Sant Pere Més Baix 36）', duration:'步行約 10–12 分', cost:'€0'},
+    {time:'14:15', type:'food', name:'JonCake & Coffee 乳酪蛋糕', badge:['check','確認營業・可能排隊'], note:'資料顯示每天 10:00–20:00；官網提到熱門時段可能排隊約 40 分鐘。另一家在 Carrer dels Assaonadors 29（El Born，離畢卡索較近），分店資訊請以現場為準。', cost:'約 €6–10／人', maps:M('JonCake Carrer de Sant Pere Més Baix 36 Barcelona')},
+    {time:'14:50', type:'transit', mode:'walk', route:'JonCake → 步行 → Tapeo（Carrer de Montcada 29）', duration:'步行約 10 分', cost:'€0'},
+    {time:'15:00', type:'food', name:'午餐：Tapeo', badge:['book','建議訂位・確認時間'], note:'離畢卡索美術館只有幾步。資料顯示接受訂位，但營業時間各來源不一致（12:00–24:00，或午餐 12:00–16:00／晚餐 19:00 起），午餐請在 16:00 前入座。', cost:'€20–30／人', maps:M('Tapeo Carrer de Montcada 29 Barcelona')},
+    {time:'16:30', type:'spot', name:'畢卡索美術館 Museu Picasso', badge:['book','建議預約 16:30 時段'], note:'官網：只有 1/1、5/1、6/24、12/25 休館；冬季 10:00–19:00，最後入場為閉館前 30 分。預留約 1.5 小時。', cost:'門票 €14／人（線上價）', maps:M('Museu Picasso Barcelona')},
+    {time:'18:30', type:'transit', mode:'walk', route:'Montcada 街 → 步行 → Passeig d’Isabel II', duration:'步行約 10–12 分', cost:'€0'},
+    {time:'19:00', type:'food', name:'晚餐：7 Portes（百年海鮮燉飯）', badge:['book','請先訂位並確認菜單'], note:'7 Portes 官網提供聖誕菜單 €72／€92／€120，供應至 1/6；訂位時請問清楚當晚是否可單點，以免預算超支。', cost:'€25–50／人（若吃聖誕菜單會更高）', maps:M('7 Portes Barcelona')},
+    {time:'21:00', type:'transit', mode:'walk', route:'7 Portes → 步行 → 巴塞隆納內塔海灘', duration:'步行約 20 分', cost:'€0'},
+    {time:'21:20', type:'spot', name:'L’Estel Ferit（Rebecca Horn 雕塑）', badge:['check','夜間注意扒手'], note:'位在 Platja de Sant Miquel，四個鋼與玻璃方塊疊成的雕塑，當地人稱「Los Cubos」，公共空間免費。夜間請結伴並收好手機。', cost:'免費', maps:M('L’Estel Ferit Barceloneta Barcelona')},
+    {time:'21:45', type:'transit', mode:'taxi', route:'L’Estel Ferit → 4 人共乘 Taxi 回公寓', duration:'約 15–20 分', cost:'約 €3–4／人（估算）'}
+   ]},
+ { day:7, date:'12/24', wd:'四', title:'平安夜：波蓋利亞 ＋ 桂爾宮 ＋ 哥倫布紀念碑 ＋ 公寓聖誕大餐', tags:['美食','彈性'], pace:'mid',
+   hl:'波蓋利亞市場 → 桂爾宮 → La Fonda → 哥倫布紀念碑 → 公寓大餐',
+   alerts:['🎄 平安夜下午店家可能陸續提早關門，今天景點集中在上午到午餐，下午輕鬆收尾。','🏛️ 桂爾宮官網：冬季 10:00–17:30（最後入場 16:30），12/25、12/26 休館，所以放在今天。','🍽️ La Fonda 我沒有查到 12/24 的營業時間，請先電話或線上確認並訂位；平安夜晚間餐廳常改菜單，所以排午餐。','🛒 公寓大餐的食材請在今天出門前或更早備好，不要等到回程才買。'],
+   events:[
+    {time:'09:10', type:'transit', mode:'metro', route:'Sagrada Família → L2 → Passeig de Gràcia 轉 L3 → Liceu（步行 2 分到市場）', duration:'約 20 分', cost:'T-casual 1 趟'},
+    {time:'09:40', type:'food', name:'波蓋利亞市場 Mercat de la Boqueria（點心）', badge:['info','🥘 美食'], note:'伊比利火腿薄片、現榨果汁，邊逛邊吃。市場人多，包包背前面。', cost:'€12–18／人', maps:M('Mercat de la Boqueria')},
+    {time:'10:45', type:'transit', mode:'walk', route:'波蓋利亞市場 → 步行 → 桂爾宮（Carrer Nou de la Rambla 3–5）', duration:'步行約 5 分', cost:'€0'},
+    {time:'11:00', type:'spot', name:'桂爾宮 Palau Güell', badge:['book','官網：12/25–26 休館'], note:'高第早期豪宅，屋頂煙囪群很有特色。官網冬季 10:00–17:30，最後入場 16:30。', cost:'門票 €12／人', maps:M('Palau Guell Barcelona')},
+    {time:'12:45', type:'food', name:'午餐：La Fonda', badge:['check','確認 12/24 營業・建議訂位'], note:'Carrer dels Escudellers 10，離桂爾宮步行約 3 分。TheFork 平均每人約 €20，有約 €26.60 的單人套餐；12/24 營業時間未查到。', cost:'€20–30／人', maps:M('La Fonda Carrer dels Escudellers 10 Barcelona')},
+    {time:'14:15', type:'transit', mode:'walk', route:'La Fonda → 步行沿 Rambla 往海邊 → 哥倫布紀念碑', duration:'步行約 10–12 分', cost:'€0'},
+    {time:'14:30', type:'free', name:'哥倫布紀念碑 Monument a Colom', badge:['info','🚶 彈性'], note:'在 Rambla 底、貝爾港旁，下午光線好，可順著港邊散步。', cost:'免費', maps:M('Monument a Colom Barcelona')},
     {time:'16:00', type:'transit', mode:'metro', route:'Drassanes → L3 轉 L2（Paral·lel）→ Sagrada Família', duration:'約 22 分', cost:'T-casual 1 趟'},
     {time:'18:30', type:'food', name:'4 人平安夜公寓大餐 ＋ 聖家堂夜間點燈', badge:['info','🥘 美食'], note:'飯後步行看聖家堂點燈。', cost:'食材約 €15–20／人'}
    ]},
- { day:8, date:'12/25', wd:'五', title:'聖誕節：桂爾公園 ＋ 巴特略之家 ＋ 米拉之家外觀（輕量版）', tags:['已預約','美食'], pace:'mid',
+  { day:8, date:'12/25', wd:'五', title:'聖誕節：桂爾公園 ＋ 巴特略之家 ＋ 米拉之家外觀（輕量版）', tags:['已預約','美食'], pace:'mid',
    hl:'桂爾公園 → 聖誕午餐 → 巴特略之家 → 米拉之家外觀＋聖誕燈飾',
    alerts:['🎅 聖誕節多數市場、商店與大型博物館休息；聖家堂 12/25 只開到 14:00（本行程不排）。','🏛️ 米拉之家今天只在街邊看外觀、不入內；官方資料顯示它 12/25 休館，不影響外觀參觀。','請用官網再確認桂爾公園與巴特略之家當日開放與入場時段；已預約的時間請以票券為準。'],
    events:[
@@ -419,21 +438,20 @@ const days = [
     {time:'17:30', type:'free', name:'米拉之家 La Pedrera 外觀拍照（不入內）＋ Passeig de Gràcia 聖誕燈飾散步', badge:['info','外觀免費'], note:'從巴特略之家沿大道走過去，天黑後燈光最美，不用趕場。', cost:'免費', maps:M('La Pedrera Casa Mila')},
     {time:'19:00', type:'transit', mode:'metro', route:'Diagonal → L5 → Sagrada Família', duration:'約 10 分', cost:'T-casual 1 趟'}
    ]},
- { day:9, date:'12/26', wd:'六', title:'聖史蒂芬節：舊城區集中日（波恩區 ＋ 哥德區）', tags:['美食'], pace:'busy',
-   hl:'音樂宮 → 畢卡索 → Puertecillo 午餐 → Hofmann → Moco → 7 Portes',
-   alerts:['🎁 12/26 是加泰隆尼亞公共假日，不少商店休息；本日景點已逐一對照官網：音樂宮照常開放、畢卡索美術館只有 12/25 休館、Moco 每天開放、桂爾宮 12/26 休館（本行程不排）。','🍤 Puertecillo Born 週五至週日 13:00 才開，所以午餐從 12:00 調到 13:00，並把畢卡索美術館提前到午餐前。','☎️ 假日營業時間可能與平日不同，Hofmann、Puertecillo、7 Portes 的 12/26 實際時間請先電話或官網確認並訂位。','🧳 今晚回公寓後請先打包，明早 07:00 出發。'],
+ { day:9, date:'12/26', wd:'六', title:'聖史蒂芬節：維森斯之家 ＋ Morreig ＋ 蒙特惠奇山', tags:['美食','彈性'], pace:'mid',
+   hl:'維森斯之家 → Morreig → 蒙特惠奇山（日落）',
+   alerts:['🎁 12/26 是加泰隆尼亞公共假日，不少商店休息。維森斯之家的整理資料列 11/1–2/28 每日 09:00–18:00、12/25 休館，12/26 沒有特別休館說明，請以官網為準。','🥐 Morreig 我查到的是第三方資料（週五、週六 09:00–22:00），不是官方公告，請先確認 12/26 有營業。','🌇 日落約 17:20–17:30，天黑後山上較暗，請在 17:45 前下山。','🧳 今晚回公寓後請先打包，明早 07:00 出發。'],
    events:[
-    {time:'09:00', type:'transit', mode:'metro', route:'Sagrada Família → L5 轉 L1 → Urquinaona（步行 3 分）', duration:'約 18 分', cost:'T-casual 1 趟'},
-    {time:'09:30', type:'spot', name:'加泰隆尼亞音樂宮 Palau de la Música Catalana', badge:['book','官網：12/26 照常開放'], note:'官網聖誕節時間：12/26 照常，參觀時段 09:00–15:30。彩繪玻璃穹頂，約 1–1.5 小時。', cost:'門票 €20–24／人（自助 €20、導覽 €24，現場購票另加 €1）', maps:M('Palau de la Musica Catalana')},
-    {time:'11:15', type:'spot', name:'畢卡索美術館 Museu Picasso', badge:['book','建議預約 11:15 時段'], note:'官網：只有 1/1、5/1、6/24、12/25 休館；冬季 10:00–19:00，最後入場為閉館前 30 分。預留約 1.5 小時。', cost:'門票 €14／人（線上價）', maps:M('Museu Picasso Barcelona')},
-    {time:'13:15', type:'food', name:'午餐：Puertecillo Born 海鮮', badge:['check','13:00 開門・確認 12/26'], note:'官網週五至週日午間 13:00–16:00、晚間 19:30 起。自助點海鮮、現場料理，熱門時段會排隊，早點到。', cost:'約 €30／人', maps:M('Puertecillo Born Barcelona')},
-    {time:'14:45', type:'food', name:'Pastisseria Hofmann 可頌甜點（飯後）', badge:['check','確認 12/26 營業'], note:'官網平日 09:00–20:00（週日 09:00–19:00），沒有查到聖誕假期的特別公告。店內多為外帶，可邊走邊吃。', cost:'約 €5／人', maps:M('Pastisseria Hofmann Barcelona')},
-    {time:'15:15', type:'spot', name:'Moco Museum Barcelona', badge:['book','建議預約'], note:'官網：每天開放，12/18–1/6 每日 10:00–20:00；約 90 分鐘。與畢卡索美術館在同一條 Montcada 街上。', cost:'含在門票 €31／人的估算內', maps:M('Moco Museum Barcelona')},
-    {time:'17:00', type:'free', name:'哥德區與大教堂周邊散步（彈性緩衝）', badge:['info','🚶 彈性'], note:'買紀念品與休息；若累了可直接回公寓補眠。', cost:'免費'},
-    {time:'19:00', type:'food', name:'晚餐：7 Portes（百年海鮮燉飯）或 La Fonda', badge:['book','請先訂位並確認菜單'], note:'7 Portes 官網提供聖誕菜單 €72／€92／€120，供應至 1/6；訂位時請問清楚當晚是否可單點，以免預算超支。La Fonda 我沒有查到 12/26 資訊，請先確認。', cost:'€25–50／人（若吃聖誕菜單會更高）', maps:M('7 Portes Barcelona')},
-    {time:'21:30', type:'transit', mode:'taxi', route:'晚餐 → 4 人共乘 Taxi 回公寓（或 L4 轉 L2）', duration:'約 12 分', cost:'約 €3.5／人'}
+    {time:'09:15', type:'transit', mode:'metro', route:'Sagrada Família → L5 → Diagonal 轉 L3 → Fontana', duration:'約 20 分', cost:'T-casual 1 趟'},
+    {time:'10:00', type:'spot', name:'維森斯之家 Casa Vicens Gaudí', badge:['book','建議先買票'], note:'高第第一件住宅作品，摩爾與伊斯蘭瓷磚風格。參觀約 1 小時 15 分，最後入場為閉館前 1 小時 15 分。', cost:'門票 €19／人', maps:M('Casa Vicens Gaudi')},
+    {time:'11:30', type:'transit', mode:'walk', route:'維森斯之家 → 步行 → Morreig（Carrer de Verdi 25）', duration:'步行約 7 分', cost:'€0'},
+    {time:'11:45', type:'food', name:'Morreig 手工烘焙與冰淇淋', badge:['check','確認 12/26 營業'], note:'店內幾乎沒座位，以外帶為主；旅客評論提到店外有長椅。可當輕午餐。', cost:'約 €6–12／人', maps:M('Morreig Carrer de Verdi 25 Barcelona')},
+    {time:'12:45', type:'transit', mode:'metro', route:'Fontana → L3 → Espanya（出站後搭手扶梯上山）', duration:'約 25 分', cost:'T-casual 1 趟'},
+    {time:'13:30', type:'spot', name:'蒙特惠奇山 Montjuïc', badge:['info','🚶 彈性'], note:'山上散步與市區全景。本行程只排戶外景觀，未含博物館等景點入場。', cost:'免費', maps:M('Montjuïc Barcelona')},
+    {time:'17:00', type:'free', name:'MNAC 台階看夕陽', badge:['info','🌇 日落約 17:20'], note:'台階免費，天氣好很值得。', cost:'免費', maps:M('MNAC Barcelona')},
+    {time:'17:45', type:'transit', mode:'metro', route:'Espanya → L3 → Passeig de Gràcia 轉 L2 → Sagrada Família', duration:'約 25 分', cost:'T-casual 1 趟'}
    ]},
- { day:10, date:'12/27', wd:'日', title:'返程日｜BCN T1 → 阿布達比 → 12/28 抵達台灣 T2', tags:['交通'], pace:'light',
+  { day:10, date:'12/27', wd:'日', title:'返程日｜BCN T1 → 阿布達比 → 12/28 抵達台灣 T2', tags:['交通'], pace:'light',
    hl:'07:00 Taxi → 10:05 起飛 → 12/28 09:00 抵台',
    alerts:['🛃 有購物退稅者：請在 DIVA 機台掃描退稅單；瑞士刀等尖銳物須放托運。'],
    events:[
@@ -538,24 +556,24 @@ const bookingDefs = [
   {id:'b3', t:'桂爾公園 12/25 10:30', n:'已預約。請用官網確認當日開放與入場時段。', done:true},
   {id:'b4', t:'巴特略之家 12/25 15:45', n:'已預約。請用官網確認當日開放時間。', done:true},
   {id:'b6', t:'聖保羅醫院 12/20 09:30', n:'建議線上預約，避免排隊。', done:false},
-  {id:'b7', t:'維森斯之家 12/21 10:00', n:'建議線上預約。', done:false},
-  {id:'b8', t:'MNAC 12/22 14:00', n:'確認冬季開放與閉館時間。', done:false},
-  {id:'b9', t:'桂爾宮 12/24 上午', n:'確認平安夜營業時間與是否需預約。', done:false},
-  {id:'b10', t:'加泰隆尼亞音樂宮 12/26 09:30', n:'官網：12/26 照常開放。選擇有中文或英文導覽的時段。', done:false},
-  {id:'b11', t:'畢卡索美術館 12/26 11:15', n:'官網：12/26 開放，建議線上預約。', done:false},
-  {id:'b12', t:'Moco Museum 12/26 15:15', n:'官網：每天開放，12/18–1/6 為 10:00–20:00。', done:false}
+  {id:'b10', t:'加泰隆尼亞音樂宮 12/23 10:30', n:'選擇有中文或英文導覽的時段；12/23 的參觀時段請以官網為準。', done:false},
+  {id:'b11', t:'畢卡索美術館 12/23 16:30', n:'官網：只有 1/1、5/1、6/24、12/25 休館，建議線上預約時段。', done:false},
+  {id:'b9', t:'桂爾宮 12/24 11:00', n:'官網冬季 10:00–17:30（最後入場 16:30），12/25–26 休館；確認是否需預約。', done:false},
+  {id:'b7', t:'維森斯之家 12/26 10:00', n:'建議先在官網買票；整理資料列每日 09:00–18:00、12/25 休館。', done:false}
  ]},
  {g:'🍽️ 餐廳訂位', items:[
   {id:'r1', t:'12/25 聖誕節午餐（格拉西亞區）', n:'已預約。請保留確認信，聖誕節營業的餐廳有限。', done:true},
-  {id:'r2', t:'12/26 晚餐：7 Portes 或 La Fonda', n:'聖史蒂芬節假日，務必訂位；問清楚是否可單點（7 Portes 官網有聖誕菜單）。', done:false, hot:true},
-  {id:'r5', t:'12/26 午餐：Puertecillo Born（13:00 開門）', n:'確認 12/26 營業時間，建議 13:00 前後到。', done:false},
-  {id:'r3', t:'12/23 晚餐：La Rita', n:'建議訂位。', done:false},
-  {id:'r4', t:'12/21 午餐：Cervecería Catalana', n:'通常不需訂位，12:30 前到最保險。', done:true}
+  {id:'r2', t:'12/23 晚餐：7 Portes', n:'務必訂位；問清楚是否可單點（7 Portes 官網有聖誕菜單）。', done:false, hot:true},
+  {id:'r7', t:'12/24 午餐：La Fonda', n:'平安夜營業時間未查到，請先確認並訂位。', done:false, hot:true},
+  {id:'r5', t:'12/20 午餐：O Retorno', n:'資料顯示接受訂位，評論提到常客滿；開賽時間公布後再定時段。', done:false},
+  {id:'r3', t:'12/23 午餐：Tapeo（約 15:00）', n:'資料顯示接受訂位；營業時間各來源不一致，請確認。', done:false},
+  {id:'r6', t:'12/19 晚餐：El Glop Gaudí', n:'官網可線上訂位（週六 12:00–23:30）。', done:false},
+  {id:'r4', t:'12/22 午餐：Cervecería Catalana', n:'資料顯示接受訂位，12:30 前到最保險。', done:true}
  ]},
  {g:'🚇 交通', items:[
   {id:'t1', t:'12/27 07:00 Taxi 預約', n:'提前一晚用 App 或電話確認。', done:false},
   {id:'t2', t:'T-mobilitat 卡 ＋ T-casual（每人 2 張）', n:'T-casual 單人使用；手機 NFC 虛擬卡 €1、紙卡 €1。機場 L9 南線站不能用。', done:false},
-  {id:'t3', t:'12/23 出城交通方案與車票', n:'依天氣決定 A 蒙特塞拉特或 B 錫切斯，前一晚確認。', done:false}
+  {id:'t3', t:'12/21 出城交通方案與車票', n:'依天氣決定 A 蒙特塞拉特或 B 錫切斯，前一晚確認。', done:false}
  ]},
  {g:'📄 入境文件', items:[
   {id:'d1', t:'ETIAS', n:'目前尚未啟用、本次不需申請；遇到收費代辦網站請小心。', done:true},
@@ -580,12 +598,14 @@ function renderBookings(){
 
 const budget = [
  {icon:'🎟️', name:'景點與預約門票', color:'var(--terra)', items:[
-   ['聖保羅醫院',18,18],['維森斯之家',19,19],['聖家堂（含語音導覽、不登塔）',26,26],['MNAC',12,12],['桂爾宮',12,12],
-   ['桂爾公園',10,10],['巴特略之家',35,45],['米拉之家：只看外觀，不計門票',0,0],['加泰隆尼亞音樂宮（官網自助 €20／導覽 €24）',20,24],['畢卡索美術館 ＋ Moco',31,31]]},
+   ['聖保羅醫院',18,18],['維森斯之家',19,19],['聖家堂（含語音導覽、不登塔）',26,26],['桂爾宮',12,12],
+   ['桂爾公園',10,10],['巴特略之家',35,45],['米拉之家：只看外觀，不計門票',0,0],['加泰隆尼亞音樂宮（官網自助 €20／導覽 €24）',20,24],['畢卡索美術館（線上價）',14,14]]},
  {icon:'🥘', name:'每日餐飲', color:'var(--olive)', items:[
-   ['聖安東尼市場午餐',15,20],['波蓋利亞市場點心',12,18],['Cervecería Catalana 午餐',25,30],['Paco Meralgo／El Nacional 晚餐',30,45],
-   ['Granja Viader 早餐',6,10],['聖家堂周邊午餐 ×2（12/20、12/22）',36,44],['La Rita 晚餐',25,30],['聖誕節午餐',25,35],
-   ['Puertecillo ＋ Hofmann',30,30],['7 Portes 晚餐',25,50],['平安夜公寓大餐食材',15,20],['其餘早餐／晚餐／咖啡點心（預留）',76,90]]},
+   ['Pinotxo 早午餐（12/19）',10,20],['El Glop Gaudí 晚餐（12/19）',20,35],['Xurreria de Maria 早餐（12/20）',5,8],['O Retorno 午餐（12/20）',25,40],
+   ['Cervecería Catalana 午餐（12/22）',25,30],['Gelateria Da Gallo（12/22）',4,6],['Vinitus／El Nacional 晚餐（12/22）',20,45],
+   ['Xurreria Laietana（12/23）',5,5],['JonCake（12/23）',6,10],['Tapeo 午餐（12/23）',20,30],['7 Portes 晚餐（12/23）',25,50],
+   ['波蓋利亞市場點心（12/24）',12,18],['La Fonda 午餐（12/24）',20,30],['平安夜公寓大餐食材',15,20],['聖誕節午餐（12/25）',25,35],
+   ['Morreig 烘焙甜點（12/26）',6,12],['其餘早餐／晚餐／咖啡點心（預留）',76,90]]},
  {icon:'🚇', name:'當地交通', color:'#1D4ED8', items:[
    ['機場往返 Taxi（4 人分攤）',18,20],['T-casual 2 張（共 20 趟，€13／張）',26,26],['出城一日遊火車／纜車',10,30],['市區 Taxi 共乘分攤',10,12]]},
  {icon:'☕', name:'雜支與小費', color:'#7E22CE', items:[['飲用水、零食、公廁、小費與緊急備用',30,50]]}
